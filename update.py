@@ -9,4 +9,4 @@ mydb = mysql.connector.connect{
 
 mycursor = mydb.cursor()
 
-mycursor.execute("UPDATE check_aanwezig SET aanwezig = 'aan';")
+mycursor.execute("UPDATE check_aanwezig SET aanwezig = 'wel';")
