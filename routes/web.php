@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\database\seeders;
+use App\Http\Controllers\LedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/led', 'App\Http\Controllers\LedController@aanuit');
