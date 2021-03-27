@@ -11,3 +11,4 @@ class AanwezigController extends Controller
         return view('show', ['show' => $show]);
     }
 }
+  

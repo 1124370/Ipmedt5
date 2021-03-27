@@ -17,7 +17,9 @@ mycursor = mydb.cursor()
 while True:
     rcv = port.readline().strip()
     if(rcv == 'A'):
-        os.system("python update.py")
+        os.system("python updateWel.py")
+    elif(rcv == 'N'):
+        os.system("python updateNiet.py")
 
     time.sleep(1)
     mydb.commit()
