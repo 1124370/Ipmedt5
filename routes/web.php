@@ -16,3 +16,6 @@ use App\Http\Controllers\LedController;
 */
 
 Route::get('/led', 'App\Http\Controllers\LedController@aanuit');
+Route::get('/', function () {
+    return view('welcome');
+});

@@ -15,7 +15,7 @@ port = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3.0)
 mycursor = mydb.cursor()
 
 while True:
-    mycursor.execute("Select * FROM focus_modus;")
+    mycursor.execute("Select * FROM niet_storen;")
     for x in mycursor:
         print(x[1])
     if x[1] == 'aan':
