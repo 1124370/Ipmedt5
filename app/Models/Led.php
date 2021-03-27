@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Led extends Model
 {
-    protected $table ='focus_modus';
+    protected $table ='niet_storen';
 }

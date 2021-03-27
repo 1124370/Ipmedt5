@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFocusModusTable extends Migration
+class CreateNietStorenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFocusModusTable extends Migration
      */
     public function up()
     {
-        Schema::create('focus_modus', function (Blueprint $table) {
+        Schema::create('niet_storen', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('led_on');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateFocusModusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('focus_modus');
+        Schema::dropIfExists('niet_storen');
     }
 }
