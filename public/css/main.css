@@ -57,7 +57,7 @@ body{
 
 
 /* animation */
-.a-popup{
+/* .a-popup{
     animation-name: popup;
     animation-duration: 0.8s;
     
@@ -75,4 +75,4 @@ body{
         transform: scale(1);
         opacity: 1;
     }
-}
+} */

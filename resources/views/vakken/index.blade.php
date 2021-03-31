@@ -10,10 +10,12 @@
 </head>
 <body>
     <section class="vakkenDashboard a-popup">
+    {{$inputtime->ingesteldetijd}}
         <ul>
             @foreach($vakken as $vak)
                 <li class="u-list-style-none">    
                 {{$vak->naam}} {{$vak->id}}
+                
                 </li>
                 <div class="vak__progressbar">
                     <div class="vak__progressbar_fill" width="%" style="height:24px;width:{{$vak->gewerktetijd}}%;">{{$vak->gewerktetijd}}%</div>

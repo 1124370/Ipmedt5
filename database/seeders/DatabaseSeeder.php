@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             tijdlooptSeeder::class,
             vakkenSeeder::class,
+            inputtimeSeeder::class,
             
         ]);
     }

@@ -1,19 +1,10 @@
 // let loaction = 'http://localhost:8000/vakken';
-
-
-
-
-
-while (true){
-    
-}
-
-
 function refresh() {    
     setTimeout(function () {
         location.reload()
-    }, 1000);
+    }, 2000);
 }
+refresh()
 
 // function sleep(ms) {
 //     return new Promise(resolve => setTimeout(resolve, ms));
