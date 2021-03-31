@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\vakkenController;
 
 Route::get('/timer', function () {
     return view('welcome');
 });
+
+Route::get('/vakken', [vakkenController::class, 'index']);
