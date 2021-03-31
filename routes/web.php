@@ -13,9 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/templucht', '\App\Http\Controllers\TempluchtController@show');
+Route::post('/templucht', '\App\Http\Controllers\TempluchtController@store');
