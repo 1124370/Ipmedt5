@@ -1,0 +1,82 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    background-color: black;
+    height: 100vh;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main__titleWrapper{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 3px solid white;
+    padding: 6rem;
+}
+
+.main__title{
+    color: #eeeeee;
+    text-align: center; 
+    font-size: 200%;  
+}
+
+.main__card{
+    width: 85%;
+    height: 75%;
+    background-color: #0E0E0E;
+    color: white;
+    display: grid;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.main__tijd{
+    font-size: 380%;
+    margin: 5rem auto 5rem auto;
+}
+
+.main__tekst{
+    width: 100%;
+    font-size: 250%;
+    text-align: center;
+}
+
+.main__tekst--aanwezig{
+    text-transform: uppercase;
+    font-size: 300%;
+}
+
+.main__buttonContainer{
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
