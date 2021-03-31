@@ -11,8 +11,9 @@ html {
 body{
     font-size: 1.8rem;
     padding: 2rem;
-    background: #222831;
+    background: #000000;
     font-family: sans-serif;
+    color: #eeeeee;
     
 }
 .vakkenDashboard {
@@ -21,16 +22,16 @@ body{
         margin: 0 auto;
         box-shadow: 0 0.2rem 2rem black;
         position: relative;
-        background: white;
+        background: #0E0E0E;
         padding: 1rem;
 }
 
 
 .vak__progressbar_fill{
-    color:#fff!important;
+    color:#eeeeee!important;
     background-color:#4CAF50!important
 }
-.vak__progressbar{color:#000!important;
+.vak__progressbar{color:#eeeeee!important;
     background-color:#f1f1f1!important
 }
 

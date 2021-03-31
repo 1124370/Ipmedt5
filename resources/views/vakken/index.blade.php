@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <title>Document</title>
+    <script src="js/reload-time.js"> </script>
 </head>
 <body>
     <section class="vakkenDashboard a-popup">
@@ -21,4 +22,5 @@
         </ul> 
     </section>
 </body>
+
 </html>
