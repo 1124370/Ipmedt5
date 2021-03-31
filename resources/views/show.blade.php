@@ -8,6 +8,7 @@
     <script src="js/main.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+    <!-- <meta http-equiv="refresh" content="3"> -->
     <title>Aanwezig</title>
 </head>
 <body>
@@ -24,9 +25,9 @@
                 <h3 class="main__tekst">aanwezig</h3>
 
                 <section class="main__buttonContainer">
-                    <button class="main__button">Noodgeval</button>
-                </section>
-        </article>
+                    <a href="/noodgeval" class="main__button">Noodgeval</a>
+                </section>               
+        </article> 
     </main>
 </body>
 </html>
