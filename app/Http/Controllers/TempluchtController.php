@@ -16,6 +16,7 @@ class TempluchtController extends Controller
             'sum' => \App\Models\TemperatureHumidity::all(),
             'pref' => \App\Models\UserPrefer::first()
         ]);
+
     }
 
     public function store(Request $request, \App\Models\UserPrefer $prefer){
