@@ -13,6 +13,7 @@
     <script>
         var valueMessage;
         window.onload = function () {       
+        inputAge();
         var chart1 = new CanvasJS.Chart("chartContainerTemp", {
             animationEnabled: true,
             theme: "light1",
@@ -193,9 +194,20 @@
      }
 
      function inputAge(){
-        
+        var recommended
+        var recommend = document.getElementById("-js--preference--recommended")
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Your age: " + age;
+        if(age <= 10){
+            recommended = "Recommended Temperature is between 20-23 degrees celcius <br> Recommended Humidity is between 40-55%"
+        } else if(age > 10 && age < 50){
+            recommended = "Recommended Temperature is between 18-20 degrees celcius <br> Recommended Humidity is between 30-45%"
+        } else if(age >= 50){
+            recommended = "Recommended Temperature is between 20-23 degrees celcius <br> Recommended Humidity is between 40-55%"
+        } else if( age == ' '){
+            recommended = "none"
+        }
+        recommend.innerHTML = recommended;
      }
 
      function setDisplay(id){ 
@@ -263,15 +275,16 @@
             <?php echo csrf_field(); ?>
             
             <label for="age">Age: </label>
-            <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="<?php echo e($pref->age); ?>" oninput="inputAge()">
+            <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="<?php echo e($pref->age); ?>" oninput="inputAge()" required>
 
             <label for="gewensttemp">Prefered Temperature (°C)</label>
-            <input name="gewensttemp" id="gewensttemp" type="number" min="-20" max="50" value="<?php echo e($pref->gewensttemp); ?>">
+            <input name="gewensttemp" id="gewensttemp" type="number" min="-20" max="50" value="<?php echo e($pref->gewensttemp); ?>" required>
 
             <label for="gewensthum">Prefered Humidity (%)</label>
-            <input name="gewensthum" id="gewensthum" type="number" min="0" max="100" value="<?php echo e($pref->gewensthum); ?>">
+            <input name="gewensthum" id="gewensthum" type="number" min="0" max="100" value="<?php echo e($pref->gewensthum); ?>" required>
 
-            <p id="-js--preference--age">Age</p>
+            <h4 id="-js--preference--age">Your age: <?php echo e($pref->age); ?></h4>
+            <p id="-js--preference--recommended"> </p>
 
             <button type="submit">Submit</button>
 
