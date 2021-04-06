@@ -46,15 +46,26 @@ body{
 
 .main__card{
     width: 85%;
-    height: 75%;
+    height: 80%;
     background-color: #0E0E0E;
     color: white;
-    display: grid;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
     flex-direction: column;
+}
+
+@media(min-width: 56.25rem){
+  .main__card{
+    width: 55%;
+  }
+}
+
+@media(min-width: 93.75rem){
+  .main__card{
+    width: 45%;
+  }
 }
 
 .main__tijd{
@@ -70,7 +81,7 @@ body{
 
 .main__tekst--aanwezig{
     text-transform: uppercase;
-    font-size: 300%;
+    font-size: 350%;
 }
 
 .main__buttonContainer{
@@ -83,77 +94,191 @@ body{
 }
 
 .main__button {
-    top: 0;
-    left: 0;
-    transition: all 0.15s linear 0s;
-    position: relative;
-    display: inline-block;
-    padding: 15px 25px;
-    background-color: rgba(165, 62, 51, 1);
-    text-transform: uppercase;
-    color: #eeeeee;
-    font-family: arial;
-    letter-spacing: 1px;
-    box-shadow: -6px 6px 0 rgba(165, 62, 51, 0.3);
-    text-decoration: none;
-    border-radius: 4rem;
+  top: 0;
+  left: 0;
+  transition: all 0.15s linear 0s;
+  position: relative;
+  display: inline-block;
+  padding: 2rem 5rem;
+  background-color: rgba(165, 62, 51, 1);
+  text-transform: uppercase;
+  color: #eeeeee;
+  font-family: arial;
+  letter-spacing: 1px;
+  box-shadow: -6px 6px 0 rgba(165, 62, 51, 0.3);
+  text-decoration: none;
+  border-radius: 4rem;
+  font-size: 150%;
+  margin-top: 5rem;
+}
+
+@media(min-width:37.5rem){
+  .main__button{
+    padding:3rem 7rem;
   }
-  .main__button:hover {
-    top: 3px;
-    left: -3px;
-    box-shadow: -3px 3px 0 #A53E33;
+
+  .main__tijd{
+    font-size: 500%;
   }
-  .main__button:hover::after {
-    top: 1px;
-    left: -2px;
-    width: 4px;
-    height: 4px;
+}
+
+
+.main__button:hover {
+  top: 3px;
+  left: -3px;
+  box-shadow: -3px 3px 0 #A53E33;
+}
+.main__button:hover::after {
+  top: 1px;
+  left: -2px;
+  width: 4px;
+  height: 4px;
+}
+.main__button:hover::before {
+  bottom: -2px;
+  right: 1px;
+  width: 4px;
+  height: 4px;
+}
+.main__button::after {
+  transition: all 0.15s linear 0s;
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: #404040;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.main__button::before {
+  transition: all 0.15s linear 0s;
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #404040;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+a.main__button {
+  position: relative;
+}
+
+a:active.main__button {
+  top: 6px;
+  left: -6px;
+  box-shadow: none;
+}
+a:active.main__button:before {
+  bottom: 1px;
+  right: 1px;
+}
+a:active.main__button:after {
+  top: 1px;
+  left: 1px;
+}
+
+
+
+/* noodgeval pagina */
+.mainNoodgeval{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 2rem;
+}
+
+.mainNoodgeval__card{
+  width: 85%;
+  height: 80%;
+  background-color: #0E0E0E;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media(min-width:62.5rem){
+  .mainNoodgeval__card{
+    width:75%;
   }
-  .main__button:hover::before {
-    bottom: -2px;
-    right: 1px;
-    width: 4px;
-    height: 4px;
+}
+
+.mainNoodgeval__tekst{
+  font-size:150%;
+}
+
+.mainNoodgeval__tekst--noodgeval{
+  text-transform: uppercase;
+  font-size:300%;
+}
+
+.mainNoodgeval__buttonContainer{
+  width: 100%;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mainNoodgeval__button{
+  text-decoration: none;
+  border:none;
+  padding: 2rem;
+  font-size: 160%;
+  background-color:#7F22EA;
+  color: white;
+}
+
+.mainNoodgeval__button:hover{
+  cursor:pointer;
+  background-color: #ac70f1;
+}
+
+.mainNoodgeval__button--terug{
+  background-color: transparent;
+  border: 0.3rem solid #7F22EA;
+  transition: 1s all;
+  border-radius: 4rem;
+  font-size:90%;
+}
+
+@media(min-width:37.5rem){
+  .mainNoodgeval__tekst{
+      font-size:250%;
   }
-  .main__button::after {
-    transition: all 0.15s linear 0s;
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: -4px;
-    width: 8px;
-    height: 8px;
-    background-color: #404040;
-    transform: rotate(45deg);
-    z-index: -1;
-  }
-  .main__button::before {
-    transition: all 0.15s linear 0s;
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    right: 2px;
-    width: 8px;
-    height: 8px;
-    background-color: #404040;
-    transform: rotate(45deg);
-    z-index: -1;
+  .mainNoodgeval__tekst--noodgeval{
+    font-size: 500%;
   }
   
-  a.main__button {
-    position: relative;
+  .mainNoodgeval__button{
+    font-size:200%;
+  }
+  .mainNoodgeval__button--terug{
+    font-size:100%;
+  }  
+}
+
+@media(min-width:62.5rem){  
+  .mainNoodgeval__button{
+    font-size:250%;
+  }
+  .mainNoodgeval__button--terug{
+    font-size:120%;
   }
   
-  a:active.main__button {
-    top: 6px;
-    left: -6px;
-    box-shadow: none;
-  }
-  a:active.main__button:before {
-    bottom: 1px;
-    right: 1px;
-  }
-  a:active.main__button:after {
-    top: 1px;
-    left: 1px;
-  }
+}
