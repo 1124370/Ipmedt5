@@ -193,7 +193,7 @@
      }
 
      function inputAge(){
-         console.log("yo")
+        
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Your age: " + age;
      }
@@ -284,22 +284,50 @@
         <section id="-js--notification--temp">
             <h2 id="-js--notification--warning--temp">Notification</h2>
             <h3>Temperature Tips:</h3>
-            <p id="-js--notification--content--temp--toohigh">Tips too high</p>
-            <p id="-js--notification--content--temp--high">Tips high</p> 
-            <p id="-js--notification--content--temp--low">Tips low</p>
-            <p id="-js--notification--content--temp--toolow">Tips too low</p>
+            <ul id="-js--notification--content--temp--toohigh">
+                <li>IJsje eten.</li>
+                <li>Ramen openzetten.</li>
+                <li>Airco aanzetten.</li>
+            </ul>
+            <ul id="-js--notification--content--temp--high">
+                <li>Koud glas drinken halen.</li>
+                <li>Trui/Vest uit.</li>
+                <li>Deuren openen.</li>
+            </ul>
+            <ul id="-js--notification--content--temp--low">
+                <li>Thee halen.</li>
+                <li>Trui/Vest aan.</li>
+            </ul>
+            <ul id="-js--notification--content--temp--toolow">
+                <li>Ramen dicht doen.</li>
+                <li>Verwarming aan.</li>
+            </ul>
         </section>
         <section id="-js--notification--hum">
             <h2 id="-js--notification--warning--hum">Notification</h2>
             <h3>Humidity Tips:</h3>
-            <p id="-js--notification--content--hum--toohigh">Tips too high</p>
-            <p id="-js--notification--content--hum--high">Tips high</p> 
-            <p id="-js--notification--content--hum--low">Tips low</p>
-            <p id="-js--notification--content--hum--toolow">Tips too low</p>
+            <ul id="-js--notification--content--hum--toohigh">
+                <li>Ventilator aan.</li>
+                <li>Airco aan.</li>
+                <li>Luchtontvochtiger aan.</li>
+            </ul>
+            <ul id="-js--notification--content--hum--toohigh">
+                <li>Zorg voor doorluchting (ramen/deuren).</li>
+                <li>Zet plantjes neer.</li>
+            </ul>
+            <ul id="-js--notification--content--hum--toohigh">
+                <li>Zet emmertje water neer.</li>
+                <li>Zet plantjes neer.</li>
+                <li>Zet verwarming uit.</li>
+            </ul>
+            <ul id="-js--notification--content--hum--toohigh">
+                <li>Luchtbevochtiger aan.</li>
+                <li>Raam open (als het regent)</li>
+            </ul>
         </section>
                    
     </article>
-
+    
 </body>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </html><?php /**PATH /home/metspek/school/Ipmedt5/resources/views/templucht.blade.php ENDPATH**/ ?>
