@@ -285,44 +285,45 @@
             <h2 id="-js--notification--warning--temp">Notification</h2>
             <h3>Temperature Tips:</h3>
             <ul id="-js--notification--content--temp--toohigh">
-                <li>IJsje eten.</li>
-                <li>Ramen openzetten.</li>
-                <li>Airco aanzetten.</li>
+                <li>Eat icecream.</li>
+                <li>Open windows.</li>
+                <li>Turn on Airconditioner.</li>
+                <li>Turn on the ventilator.</li>
             </ul>
             <ul id="-js--notification--content--temp--high">
-                <li>Koud glas drinken halen.</li>
-                <li>Trui/Vest uit.</li>
-                <li>Deuren openen.</li>
+                <li>Get cold glass of water.</li>
+                <li>Take sweater/vest off.</li>
+                <li>Open doors.</li>
             </ul>
             <ul id="-js--notification--content--temp--low">
-                <li>Thee halen.</li>
-                <li>Trui/Vest aan.</li>
+                <li>Get some tea.</li>
+                <li>Put on sweater/vest.</li>
             </ul>
             <ul id="-js--notification--content--temp--toolow">
-                <li>Ramen dicht doen.</li>
-                <li>Verwarming aan.</li>
+                <li>Close windows.</li>
+                <li>Turn on the heater.</li>
             </ul>
         </section>
         <section id="-js--notification--hum">
             <h2 id="-js--notification--warning--hum">Notification</h2>
             <h3>Humidity Tips:</h3>
             <ul id="-js--notification--content--hum--toohigh">
-                <li>Ventilator aan.</li>
-                <li>Airco aan.</li>
-                <li>Luchtontvochtiger aan.</li>
+                <li>Turn on the ventilator.</li>
+                <li>Turn on the airconditioner.</li>
+                <li>Turn on the air dehumidifier.</li>
             </ul>
             <ul id="-js--notification--content--hum--toohigh">
-                <li>Zorg voor doorluchting (ramen/deuren).</li>
-                <li>Zet plantjes neer.</li>
+                <li>Get some airflow (open windows/doors).</li>
+                <li>Get some plants.</li>
             </ul>
             <ul id="-js--notification--content--hum--toohigh">
-                <li>Zet emmertje water neer.</li>
-                <li>Zet plantjes neer.</li>
-                <li>Zet verwarming uit.</li>
+                <li>Get a bucket of water.</li>
+                <li>Get some plants.</li>
+                <li>Turn off the heater.</li>
             </ul>
             <ul id="-js--notification--content--hum--toohigh">
-                <li>Luchtbevochtiger aan.</li>
-                <li>Raam open (als het regent)</li>
+                <li>Turn on the air humidifier.</li>
+                <li>Open a window (if it rains).</li>
             </ul>
         </section>
                    
