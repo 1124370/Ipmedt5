@@ -97,6 +97,7 @@
         checkSubmit();
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Your age: " + age;
+        trimDownValues();
       
      }
 
@@ -261,10 +262,16 @@
      function closeNotification(){
         document.getElementById("-js--notification--close").style.display= "none";
         document.getElementById("-js--notification").style.height = "0px";
-        document.getElementById("-js--notification").style.borderRadius = "2.5rem";
-
-        
+        document.getElementById("-js--notification").style.borderRadius = "2.5rem";   
      }
+
+     function trimDownValues(){
+        
+        temp = String({{$avgTemp}})
+        hum = String({{$avgHum}})
+        document.getElementById("-js--average--temp").innerHTML = "Temperature: " + temp + " °Celsius"
+        document.getElementById("-js--average--hum").innerHTML = "Humidity: " +  hum + "%"
+        }
     </script>
     
 
@@ -337,14 +344,14 @@
 
         <article>
             <h2>Prefered Values</h2>
-            <h3>Temperature: {{$pref->gewensttemp}} °Celsius</h3>
+            <h3>Temperature {{$pref->gewensthum}} °Celsius</h3>
             <h3>Humidity: {{$pref->gewensthum}}%   </h3>
         </article>
 
         <article>
             <h2>Average Values</h2>
-            <h3>Temperature: {{$avgTemp}} °Celsius</h3>
-            <h3>Humidity:    {{$avgHum}}%</h3>
+            <h3 id="-js--average--temp">Temperature: {{$avgTemp}} °Celsius</h3>
+            <h3 id="-js--average--hum">Humidity:    {{$avgHum}}%</h3>
         </article>
 
         <article>
@@ -368,10 +375,10 @@
                 <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="{{ $pref->age }}" oninput="inputAge()" required>
 
                 <label for="gewensttemp">Prefered Temperature (°C)</label>
-                <input name="gewensttemp" id="gewensttemp" type="number" min="-20" max="50" value="{{ $pref->gewensttemp }}" required>
+                <input name="gewensttemp"  type="number" min="-20" max="50" value="{{ $pref->gewensttemp }}" required>
 
                 <label for="gewensthum">Prefered Humidity (%)</label>
-                <input name="gewensthum" id="gewensthum" type="number" min="0" max="100" value="{{ $pref->gewensthum }}" required>
+                <input name="gewensthum"  type="number" min="0" max="100" value="{{ $pref->gewensthum }}" required>
 
                 <h4 id="-js--preference--age">Your age: {{$pref->age}}</h4>
                 <p id="-js--preference--recommended"> </p>

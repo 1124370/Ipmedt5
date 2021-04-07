@@ -98,6 +98,7 @@
         checkSubmit();
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Your age: " + age;
+        trimDownValues();
       
      }
 
@@ -110,7 +111,7 @@
         if(localStorage.getItem("submit") == "true"){
             document.getElementById("-js--submitted").style.height  = "7rem";
             localStorage.setItem("submit", "false");
-            setTimeout(function(){ document.getElementById("-js--submitted").style.height = "0rem"}, 3000);
+            setTimeout(function(){ document.getElementById("-js--submitted").style.height = "0rem"}, 5000);
         }
      }
 
@@ -262,10 +263,16 @@
      function closeNotification(){
         document.getElementById("-js--notification--close").style.display= "none";
         document.getElementById("-js--notification").style.height = "0px";
-        document.getElementById("-js--notification").style.borderRadius = "2.5rem";
-
-        
+        document.getElementById("-js--notification").style.borderRadius = "2.5rem";   
      }
+
+     function trimDownValues(){
+        
+        temp = String(<?php echo e($avgTemp); ?>)
+        hum = String(<?php echo e($avgHum); ?>)
+        document.getElementById("-js--average--temp").innerHTML = "Temperature: " + temp + " °Celsius"
+        document.getElementById("-js--average--hum").innerHTML = "Humidity: " +  hum + "%"
+        }
     </script>
     
 
@@ -338,14 +345,14 @@
 
         <article>
             <h2>Prefered Values</h2>
-            <h3>Temperature: <?php echo e($pref->gewensttemp); ?> °Celsius</h3>
+            <h3>Temperature <?php echo e($pref->gewensthum); ?> °Celsius</h3>
             <h3>Humidity: <?php echo e($pref->gewensthum); ?>%   </h3>
         </article>
 
         <article>
             <h2>Average Values</h2>
-            <h3>Temperature: <?php echo e($avgTemp); ?> °Celsius</h3>
-            <h3>Humidity:    <?php echo e($avgHum); ?>%</h3>
+            <h3 id="-js--average--temp">Temperature: <?php echo e($avgTemp); ?> °Celsius</h3>
+            <h3 id="-js--average--hum">Humidity:    <?php echo e($avgHum); ?>%</h3>
         </article>
 
         <article>
@@ -369,10 +376,10 @@
                 <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="<?php echo e($pref->age); ?>" oninput="inputAge()" required>
 
                 <label for="gewensttemp">Prefered Temperature (°C)</label>
-                <input name="gewensttemp" id="gewensttemp" type="number" min="-20" max="50" value="<?php echo e($pref->gewensttemp); ?>" required>
+                <input name="gewensttemp"  type="number" min="-20" max="50" value="<?php echo e($pref->gewensttemp); ?>" required>
 
                 <label for="gewensthum">Prefered Humidity (%)</label>
-                <input name="gewensthum" id="gewensthum" type="number" min="0" max="100" value="<?php echo e($pref->gewensthum); ?>" required>
+                <input name="gewensthum"  type="number" min="0" max="100" value="<?php echo e($pref->gewensthum); ?>" required>
 
                 <h4 id="-js--preference--age">Your age: <?php echo e($pref->age); ?></h4>
                 <p id="-js--preference--recommended"> </p>
