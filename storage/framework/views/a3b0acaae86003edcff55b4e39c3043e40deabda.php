@@ -172,6 +172,8 @@
             console.log(value)
                 document.getElementById("-js--notification--warning--temp").innerHTML = message;
                 document.getElementById("-js--notification--temp").style.display = "block";
+                document.getElementById("-js--notification--warning--temp").style.display = "block";
+                document.getElementById("-js--notification--warning--temp--tip").style.display = "block";
                 switch(value){
                     case "too low":
                         setDisplay("-js--notification--content--temp--toolow");
@@ -193,6 +195,8 @@
                 console.log(value)
                 document.getElementById("-js--notification--warning--hum").innerHTML = message;
                 document.getElementById("-js--notification--hum").style.display = "block";
+                document.getElementById("-js--notification--warning--hum").style.display = "block";
+                document.getElementById("-js--notification--warning--hum--tip").style.display = "block";
                 switch(value){
                     case "too low":
                         setDisplay("-js--notification--content--hum--toolow")
@@ -250,18 +254,16 @@
         return valueMessage;
      }
      function openNotification(){
-        document.getElementById("-js--notification").style.display = "block" 
-        setTimeout(function(){ document.getElementById("-js--notification").style.maxHeight  = "100%"}, 100);
-        
+        console.log(document.getElementById("-js--notification").scrollHeight )
+        setTimeout(function(){ document.getElementById("-js--notification").style.height = document.getElementById("-js--notification").scrollHeight + 200 + "px"}, 100);
         setTimeout(function(){ document.getElementById("-js--notification--close").style.display= "block"}, 300);
-        
      }
 
      function closeNotification(){
         document.getElementById("-js--notification--close").style.display= "none";
-        document.getElementById("-js--notification").style.maxHeight = "0px";
+        document.getElementById("-js--notification").style.height = "0px";
         document.getElementById("-js--notification").style.borderRadius = "2.5rem";
-        setTimeout(function(){ document.getElementById("-js--notification").style.display = "none"}, 700);
+
         
      }
     </script>
@@ -276,10 +278,10 @@
     </div>
 
     <article class="templucht_notification" id="-js--notification">
-            <h1>! WARNING !</h1>
+        <h1>! WARNING !</h1>
             <section class="templucht_notification_section" id="-js--notification--temp">
-                <h2 id="-js--notification--warning--temp">Notification</h2>
-                <h3>Temperature Tips:</h3>
+                <h2 class="templucht_hide" id="-js--notification--warning--temp">Notification</h2>
+                <h3 class="templucht_hide" id="-js--notification--warning--temp--tip">Temperature Tips:</h3>
                 <ul id="-js--notification--content--temp--toohigh">
                     <li>Eat icecream.</li>
                     <li>Open windows.</li>
@@ -301,8 +303,8 @@
                 </ul>
             </section>
             <section class="templucht_notification_section" id="-js--notification--hum">
-                <h2 id="-js--notification--warning--hum">Notification</h2>
-                <h3>Humidity Tips:</h3>
+                <h2 class="templucht_hide"  id="-js--notification--warning--hum">Notification</h2>
+                <h3 class="templucht_hide"  id="-js--notification--warning--hum--tip">Humidity Tips:</h3>
                 <ul id="-js--notification--content--hum--toohigh">
                     <li>Turn on the ventilator.</li>
                     <li>Turn on the airconditioner.</li>
@@ -323,8 +325,8 @@
                 </ul>
             
             </section>
-            <button class="templucht_notification_close templucht_button" id="-js--notification--close" onclick="closeNotification()">Close</button>     
-        </article>
+        <button class="templucht_notification_close" id="-js--notification--close" onclick="closeNotification()">Close</button>
+    </article>
     <main>
         <article>
             <h2>Newest Recording</h2>
