@@ -46,7 +46,7 @@ body{
 
 .main__card{
     width: 85%;
-    height: 80%;
+    height: 76%;
     background-color: #0E0E0E;
     color: white;
     display: flex;
@@ -68,9 +68,34 @@ body{
   }
 }
 
+.main__input{
+  margin: 5rem auto 2rem auto;
+  font-size:150%;
+}
+
+.main__button{
+  font-size:130%;
+  padding: 1rem 4rem;
+  margin-bottom: 4rem;
+  border: none;
+  background-color: #7F22EA;
+  color: white;
+  text-decoration: none;
+}
+
+.main__button:hover{
+  cursor:pointer;
+  background-color: #ac70f1;
+}
+
 .main__tijd{
-    font-size: 380%;
-    margin: 5rem auto 5rem auto;
+  font-size: 380%;
+  margin: 5rem auto 5rem auto;
+  display: none;
+}
+
+#js--startButton{
+  display: none;
 }
 
 .main__tekst{
@@ -84,8 +109,27 @@ body{
     font-size: 350%;
 }
 
+@media(min-width:32.25rem){
+  .main__input{
+    font-size: 180%;
+  }
+  .main__button{
+    font-size:180%;
+  }
+  body{
+    height: 105vh;
+  }
+}
+
+@media(min-width:37.5rem){
+  .main__tijd{
+    font-size: 500%;
+  }
+}
+
 .main__buttonContainer{
-    margin-top: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
     width: 100%;
     display: flex;
     text-align: center;
@@ -93,7 +137,7 @@ body{
     box-sizing: border-box;
 }
 
-.main__button {
+.main__button--noodgeval {
   top: 0;
   left: 0;
   transition: all 0.15s linear 0s;
@@ -109,38 +153,27 @@ body{
   text-decoration: none;
   border-radius: 4rem;
   font-size: 150%;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
-@media(min-width:37.5rem){
-  .main__button{
-    padding:3rem 7rem;
-  }
-
-  .main__tijd{
-    font-size: 500%;
-  }
-}
-
-
-.main__button:hover {
+.main__button--noodgeval:hover {
   top: 3px;
   left: -3px;
   box-shadow: -3px 3px 0 #A53E33;
 }
-.main__button:hover::after {
+.main__button--noodgeval:hover::after {
   top: 1px;
   left: -2px;
   width: 4px;
   height: 4px;
 }
-.main__button:hover::before {
+.main__button--noodgeval:hover::before {
   bottom: -2px;
   right: 1px;
   width: 4px;
   height: 4px;
 }
-.main__button::after {
+.main__button--noodgeval::after {
   transition: all 0.15s linear 0s;
   content: "";
   position: absolute;
@@ -152,7 +185,7 @@ body{
   transform: rotate(45deg);
   z-index: -1;
 }
-.main__button::before {
+.main__button--noodgeval::before {
   transition: all 0.15s linear 0s;
   content: "";
   position: absolute;
@@ -165,23 +198,25 @@ body{
   z-index: -1;
 }
 
-a.main__button {
+a.main__button--noodgeval {
   position: relative;
 }
 
-a:active.main__button {
+a:active.main__button--noodgeval {
   top: 6px;
   left: -6px;
   box-shadow: none;
 }
-a:active.main__button:before {
+a:active.main__button--noodgeval:before {
   bottom: 1px;
   right: 1px;
 }
-a:active.main__button:after {
+a:active.main__button--noodgeval:after {
   top: 1px;
   left: 1px;
 }
+
+
 
 
 

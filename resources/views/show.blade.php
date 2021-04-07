@@ -12,15 +12,20 @@
         </section>
         
         <article class="main__card">
-            <h2 class="main__tijd" id="js--tijd">00:00:00</h2>
+                <input class="main__input" type="number" placeholder="Seconden " id="js--inputTijd" required>
+                <button class="main__button" type="submit" id="js--setButton" onclick="getInputValue();">Submit</button>
+        
+            <h2 class="main__tijd" id="js--aftellen">00:00:00</h2>
+            <button class="main__button" id="js--startButton" onclick="startTijd();" type="button">Start tijd</button>            
 
             <h3 class="main__tekst">Telefoon is</h3>
-            <h3 class="main__tekst main__tekst--aanwezig">{{$show}}</h3>
+            <h3 class="main__tekst main__tekst--aanwezig" id="js--aanwezig">{{$show}}</h3>
             <h3 class="main__tekst">aanwezig</h3>
 
             <section class="main__buttonContainer">
-                <a href="/noodgeval" class="main__button">Noodgeval</a>
-            </section>               
+                <a href="/noodgeval" class="main__button--noodgeval">Noodgeval</a>
+            </section>          
+         
         </article> 
     </main>
 @endsection

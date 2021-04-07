@@ -16,3 +16,4 @@ Route::get('/', 'App\Http\Controllers\AanwezigController@show');
 Route::get('/noodgeval', 'App\Http\Controllers\NoodgevalController@aanuit');
 
 
+
