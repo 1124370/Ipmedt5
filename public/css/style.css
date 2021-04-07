@@ -68,35 +68,7 @@ body{
   }
 }
 
-.main__input{
-  margin: 5rem auto 2rem auto;
-  font-size:150%;
-}
 
-.main__button{
-  font-size:130%;
-  padding: 1rem 4rem;
-  margin-bottom: 4rem;
-  border: none;
-  background-color: #7F22EA;
-  color: white;
-  text-decoration: none;
-}
-
-.main__button:hover{
-  cursor:pointer;
-  background-color: #ac70f1;
-}
-
-.main__tijd{
-  font-size: 380%;
-  margin: 5rem auto 5rem auto;
-  display: none;
-}
-
-#js--startButton{
-  display: none;
-}
 
 .main__tekst{
     width: 100%;
@@ -215,9 +187,6 @@ a:active.main__button--noodgeval:after {
   top: 1px;
   left: 1px;
 }
-
-
-
 
 
 /* noodgeval pagina */

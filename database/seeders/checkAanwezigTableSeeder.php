@@ -14,7 +14,7 @@ class checkAanwezigTableSeeder extends Seeder
     public function run()
     {
         DB::table('check_aanwezig')->insert([
-            'aanwezig' => 'niet'
+            'aanwezig' => 'niet',
         ]);
     }
 }
