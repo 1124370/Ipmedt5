@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use DB;
 
-
 class TempluchtTableSeeder extends Seeder
 {
     /**
@@ -15,57 +14,12 @@ class TempluchtTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        DB::table('templucht')->insert([
-            'temperature' => 0,
-            'humidity' => 0
-        ]);
-        
-
-        
-
+        for($x = 0; $x < 12; $x++) {
+            DB::table('templucht')->insert([
+                'temperature' => 20,
+                'humidity' => 50
+            ]);
+            
+        }
     }
 }

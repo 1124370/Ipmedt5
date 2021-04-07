@@ -8,37 +8,236 @@
 html{
     box-sizing: inherit;
     font-size: 62.5%;
+    
 }
 
 :root{
-    --bg-color: green;
-    --card-color: blue;
+    --bg-color: #000000;
+    --card-color: #0e0e0e;
+    --text-color: #eeeeee;
+    --warning-color: #a53e33;
+    --title-color: #7f22ea;
+    --button-border: #3c0b75;
+    --submitted-color: #1e6f5c;
 }
 
 body{
     background-color: var(--bg-color);
     width: 100%;
+    color: var(--text-color);
 }
 
+h1{
+    text-align: center;
+    font-size: 3rem;
+    padding: 2rem 0;
+}
 
+h2{
+    font-size: 2.2rem;
+    text-decoration: underline;
+}
 
+h3{
+    font-size: 1.6rem;
+}
+
+h4{
+    font-size: 1.4rem;
+}
+
+.templucht_title{
+    background-color: var(--title-color);
+}
+
+.templucht_first{
+    transform: translateY(-50%);
+}
+
+main{
+    padding-top: 2rem;
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+        'new'
+        'pref'
+        'avg'
+        'lat'
+        'set';
+    grid-gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+article{
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-color);
+    border-radius: 2.5rem;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+article:nth-of-type(1){
+    grid-area: new;
+}
+article:nth-of-type(2){
+    grid-area: pref;
+}
+article:nth-of-type(3){
+    grid-area: avg;
+}
+article:nth-of-type(4){
+    grid-area: lat;
+}
+article:nth-of-type(5){
+    grid-area: set;
+}
+
+.templucht_recordings{
+    margin: 1rem 0;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--text-color);
+    border-radius: 2.5rem;
+}
 
 .templucht_notification{
     display: none;
+    max-height: 0px;
+    width: 100%;
+    max-width: 700px;
+    
     position: fixed;
-    width: 30rem;
-    height: 30rem;
-    top: 50%;
     left: 50%;
-    margin-left: -15rem;
-    margin-top: -15rem;
-    background-color: blue;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    overflow: hidden;
+    background-color: var(--warning-color);
+    transition: 0.75s;
+    border-radius: 0;
+    z-index: 2;
 }
+
 
 .templucht_notification > section > p{
     display: none;
 }
 
-section{
+
+.templucht_notification_section{
+    display: none;
+    width: 90%;
+    margin: auto;
+}
+
+
+.templucht_notification_section > h2{
+    margin-top: 2rem  ;
+}
+
+ul{
+    list-style: circle;
     display: none;
 }
+li{
+    font-size: 1.4rem;
+    margin-left: 2rem;
+}
+
+.templucht_notification_close{
+    display: none;
+    width: 90% !important;
+    max-width: 60rem;
+    margin: 10rem auto;
+}
+
+
+.templucht_button{
+    padding: 1rem;
+    width: 20rem;
+    border: .5rem solid;
+    border-radius: 2.5rem;
+    background-color: var(--title-color);
+    border-color: var(--title-color) ;
+    box-shadow: .4rem .4rem 0 var(--button-border);
+    color: var(--text-color);
+    transition: .5s;
+}
+
+.templucht_button::after{ 
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2.5rem;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.templucht_button:hover{
+    background-color: var(--button-border);
+    cursor: pointer;
+}
+
+.templucht_button:active{
+    box-shadow: none;
+    transform: translateY(.5rem) translateX(.2rem);
+}
+
+.templucht_refresh{
+    margin-top: 2rem;
+}
+
+label, p{
+    display: block;
+    font-size: 1.4rem;
+}
+
+input{
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 2.5rem;
+    padding: .3rem 1rem;
+}
+
+.templucht_submitted{
+    transition: .5s;
+    overflow: hidden;
+    position: fixed;
+    height: 0rem;
+    z-index: 5;
+    max-width: 60rem;
+    width: 90%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--submitted-color);
+    border-bottom-right-radius: 2.5rem;
+    border-bottom-left-radius: 2.5rem;
+}
+
+.templucht_submitted > p {
+    padding: 2rem 3rem;
+    font-size: 1.7rem;
+}
+
+@media (min-width: 600px){
+
+
+    .templucht_notification_section{
+        width: 50%;
+    }
+
+    main{
+        grid-template-areas: 
+        'new pref'
+        'new avg'
+        'lat lat'
+        'set set';
+    }
+}
+

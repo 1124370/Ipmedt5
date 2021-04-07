@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="300">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Templucht - Daniel</title>
     <link rel="stylesheet" href="\css\templucht.css">
 
@@ -16,11 +17,13 @@
         inputAge();
         var chart1 = new CanvasJS.Chart("chartContainerTemp", {
             animationEnabled: true,
-            theme: "light1",
+            theme: "light2",
             title:{
+                fontSize: 18,
                 text: "Latest Temperatures"
             },
             axisX:{
+                
                 title: "Timeline"
             },
             axisY:{
@@ -48,8 +51,9 @@
         });
         var chart2 = new CanvasJS.Chart("chartContainerHum", {
             animationEnabled: true,
-            theme: "light1",
+            theme: "light2",
             title:{
+                fontSize: 18,
                 text: "Latest Humidity"
             },
             axisX:{
@@ -80,7 +84,9 @@
         });
         chart1.render();
         chart2.render();
-
+       
+        console.log(localStorage.getItem("submit"))
+        
         var tempdif = {{$cur->temperature}} - {{$pref->gewensttemp}} 
         const tempMargin = [-1, 1, -2, -3, 2, 3]
         var tempResult = checkdif(tempdif, tempMargin);
@@ -88,10 +94,23 @@
         const humMargin = [-4, 4, -5, -10, 5, 10]
         var humResult = checkdif(humdif, humMargin);
         showNote(tempResult, humResult);
-
+        checkSubmit();
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Your age: " + age;
       
+     }
+
+     function submitForm(){
+        localStorage.setItem("submit", "true");
+        document.getElementById("-js--form").submit();
+     }
+
+     function checkSubmit(){
+        if(localStorage.getItem("submit") == "true"){
+            document.getElementById("-js--submitted").style.height  = "7rem";
+            localStorage.setItem("submit", "false");
+            setTimeout(function(){ document.getElementById("-js--submitted").style.height = "0rem"}, 3000);
+        }
      }
 
      function showNote(noteTemp, noteHum){
@@ -145,9 +164,11 @@
      }
 
      function giveWarning(message, object, value){
+        openNotification();
         document.getElementById("-js--notification").style.display = "block";
         switch (object){
             case "temp":
+            console.log(value)
                 document.getElementById("-js--notification--warning--temp").innerHTML = message;
                 document.getElementById("-js--notification--temp").style.display = "block";
                 switch(value){
@@ -168,6 +189,7 @@
                 }
                 break;
             case "hum":
+                console.log(value)
                 document.getElementById("-js--notification--warning--hum").innerHTML = message;
                 document.getElementById("-js--notification--hum").style.display = "block";
                 switch(value){
@@ -189,7 +211,6 @@
                 break;
         }
 
-        
      }
 
      function inputAge(){
@@ -198,18 +219,17 @@
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Your age: " + age;
         if(age <= 10){
-            recommended = "Recommended Temperature is between 20-23 degrees celcius <br> Recommended Humidity is between 40-55%"
+            recommended = "Recommended Temperature is 20-23 °C <br> Recommended Humidity is between 45-55%"
         } else if(age > 10 && age < 50){
-            recommended = "Recommended Temperature is between 18-20 degrees celcius <br> Recommended Humidity is between 30-45%"
+            recommended = "Recommended Temperature is 18-20 °C <br> Recommended Humidity is between 40-60%"
         } else if(age >= 50){
-            recommended = "Recommended Temperature is between 20-23 degrees celcius <br> Recommended Humidity is between 40-55%"
-        } else if( age == ' '){
-            recommended = "none"
+            recommended = "Recommended Temperature is 20-23 °C <br> Recommended Humidity is between 50-60%"
         }
         recommend.innerHTML = recommended;
      }
 
      function setDisplay(id){ 
+         console.log(id)
         document.getElementById(id).style.display = "block";
      }
 
@@ -229,117 +249,140 @@
         return valueMessage;
      }
      function openNotification(){
-        document.getElementById("-js--notification").style.display = "block";
+        document.getElementById("-js--notification").style.display = "block" 
+        setTimeout(function(){ document.getElementById("-js--notification").style.maxHeight  = "100%"}, 100);
+        
+        setTimeout(function(){ document.getElementById("-js--notification--close").style.display= "block"}, 300);
+        
      }
 
      function closeNotification(){
-        document.getElementById("-js--notification").style.display = "none"
+        document.getElementById("-js--notification--close").style.display= "none";
+        document.getElementById("-js--notification").style.maxHeight = "0px";
+        document.getElementById("-js--notification").style.borderRadius = "2.5rem";
+        setTimeout(function(){ document.getElementById("-js--notification").style.display = "none"}, 700);
+        
      }
     </script>
     
 
 </head>
-<body>
-    <h1>Temperature/Humidity</h1>
+<body class="templucht">
+    <h1 class="templucht_title">Temperature/Humidity</h1>
 
-    <article>
-        <h2>Newest Recording</h2>
-        <h3>Temperature: {{$cur->temperature}} °Celsius</h3>
-        <h3>Humidity: {{$cur->humidity}}%   </h3>
-        <h4>Recorded at: {{$cur->created_at}}</h4>
-        <button onClick="window.location.reload();">Refresh</button>
-    </article>
-
-    <article>
-        <h2>Prefered Values</h2>
-        <h3>Temperature: {{$pref->gewensttemp}} °Celsius</h3>
-        <h3>Humidity: {{$pref->gewensthum}}%   </h3>
-    </article>
-
-    <article>
-        <h2>Average</h2>
-        <h3>Temperature: {{$avgTemp}} °Celsius</h3>
-        <h3>Humidity:    {{$avgHum}}%</h3>
-    </article>
-
-    <article>
-    
-        <h2>Latest Recordings</h2>
-        <div id="chartContainerTemp" style="height: 200px; width: 40%;"></div>
-        <div id="chartContainerHum" style="height: 200px; width: 40%;"></div>           
-    </article>
-
-    <article>
-        <form method="POST" action="/templucht">
-            @csrf
-            
-            <label for="age">Age: </label>
-            <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="{{ $pref->age }}" oninput="inputAge()" required>
-
-            <label for="gewensttemp">Prefered Temperature (°C)</label>
-            <input name="gewensttemp" id="gewensttemp" type="number" min="-20" max="50" value="{{ $pref->gewensttemp }}" required>
-
-            <label for="gewensthum">Prefered Humidity (%)</label>
-            <input name="gewensthum" id="gewensthum" type="number" min="0" max="100" value="{{ $pref->gewensthum }}" required>
-
-            <h4 id="-js--preference--age">Your age: {{$pref->age}}</h4>
-            <p id="-js--preference--recommended"> </p>
-
-            <button type="submit">Submit</button>
-
-            
-        </form>
-    </article>
+    <div class="templucht_submitted" id="-js--submitted">
+        <p>Settings changed!</p>
+    </div>
 
     <article class="templucht_notification" id="-js--notification">
-        <button onclick="closeNotification()">Close</button>
-        <section id="-js--notification--temp">
-            <h2 id="-js--notification--warning--temp">Notification</h2>
-            <h3>Temperature Tips:</h3>
-            <ul id="-js--notification--content--temp--toohigh">
-                <li>Eat icecream.</li>
-                <li>Open windows.</li>
-                <li>Turn on Airconditioner.</li>
-                <li>Turn on the ventilator.</li>
-            </ul>
-            <ul id="-js--notification--content--temp--high">
-                <li>Get cold glass of water.</li>
-                <li>Take sweater/vest off.</li>
-                <li>Open doors.</li>
-            </ul>
-            <ul id="-js--notification--content--temp--low">
-                <li>Get some tea.</li>
-                <li>Put on sweater/vest.</li>
-            </ul>
-            <ul id="-js--notification--content--temp--toolow">
-                <li>Close windows.</li>
-                <li>Turn on the heater.</li>
-            </ul>
-        </section>
-        <section id="-js--notification--hum">
-            <h2 id="-js--notification--warning--hum">Notification</h2>
-            <h3>Humidity Tips:</h3>
-            <ul id="-js--notification--content--hum--toohigh">
-                <li>Turn on the ventilator.</li>
-                <li>Turn on the airconditioner.</li>
-                <li>Turn on the air dehumidifier.</li>
-            </ul>
-            <ul id="-js--notification--content--hum--toohigh">
-                <li>Get some airflow (open windows/doors).</li>
-                <li>Get some plants.</li>
-            </ul>
-            <ul id="-js--notification--content--hum--toohigh">
-                <li>Get a bucket of water.</li>
-                <li>Get some plants.</li>
-                <li>Turn off the heater.</li>
-            </ul>
-            <ul id="-js--notification--content--hum--toohigh">
-                <li>Turn on the air humidifier.</li>
-                <li>Open a window (if it rains).</li>
-            </ul>
-        </section>
-                   
-    </article>
+            <h1>! WARNING !</h1>
+            <section class="templucht_notification_section" id="-js--notification--temp">
+                <h2 id="-js--notification--warning--temp">Notification</h2>
+                <h3>Temperature Tips:</h3>
+                <ul id="-js--notification--content--temp--toohigh">
+                    <li>Eat icecream.</li>
+                    <li>Open windows.</li>
+                    <li>Turn on Airconditioner.</li>
+                    <li>Turn on the ventilator.</li>
+                </ul>
+                <ul id="-js--notification--content--temp--high">
+                    <li>Get cold glass of water.</li>
+                    <li>Take sweater/vest off.</li>
+                    <li>Open doors.</li>
+                </ul>
+                <ul id="-js--notification--content--temp--low">
+                    <li>Get some tea.</li>
+                    <li>Put on sweater/vest.</li>
+                </ul>
+                <ul id="-js--notification--content--temp--toolow">
+                    <li>Close windows.</li>
+                    <li>Turn on the heater.</li>
+                </ul>
+            </section>
+            <section class="templucht_notification_section" id="-js--notification--hum">
+                <h2 id="-js--notification--warning--hum">Notification</h2>
+                <h3>Humidity Tips:</h3>
+                <ul id="-js--notification--content--hum--toohigh">
+                    <li>Turn on the ventilator.</li>
+                    <li>Turn on the airconditioner.</li>
+                    <li>Turn on the air dehumidifier.</li>
+                </ul>
+                <ul id="-js--notification--content--hum--high">
+                    <li>Get some airflow (open windows/doors).</li>
+                    <li>Get some plants.</li>
+                </ul>
+                <ul id="-js--notification--content--hum--low">
+                    <li>Get a bucket of water.</li>
+                    <li>Get some plants.</li>
+                    <li>Turn off the heater.</li>
+                </ul>
+                <ul id="-js--notification--content--hum--toolow">
+                    <li>Turn on the air humidifier.</li>
+                    <li>Open a window (if it rains).</li>
+                </ul>
+            
+            </section>
+            <button class="templucht_notification_close templucht_button" id="-js--notification--close" onclick="closeNotification()">Close</button>     
+        </article>
+    <main>
+        <article>
+            <h2>Newest Recording</h2>
+            <h3>Temperature: {{$cur->temperature}} °Celsius</h3>
+            <h3>Humidity: {{$cur->humidity}}%   </h3>
+            <h4>Recorded at: {{$cur->created_at}}</h4>
+            <button class="templucht_button templucht_refresh" onClick="window.location.reload();">Refresh</button>
+        </article>
+
+        <article>
+            <h2>Prefered Values</h2>
+            <h3>Temperature: {{$pref->gewensttemp}} °Celsius</h3>
+            <h3>Humidity: {{$pref->gewensthum}}%   </h3>
+        </article>
+
+        <article>
+            <h2>Average Values</h2>
+            <h3>Temperature: {{$avgTemp}} °Celsius</h3>
+            <h3>Humidity:    {{$avgHum}}%</h3>
+        </article>
+
+        <article>
+        
+            <h2>Latest Recordings</h2>
+            <section class="templucht_recordings">
+                <div class="templucht_recordings_tables" id="chartContainerTemp" style="height: 150px; width: 100%;"></div>
+                <div class="templucht_recordings_tables" id="chartContainerHum" style="height: 150px; width: 100%;"></div> 
+            </section>
+            
+            
+                    
+        </article>
+
+        <article>
+            <h2>Settings</h2>
+            <form id="-js--form" method="POST" action="/templucht">
+                @csrf
+                
+                <label for="age">Age: </label>
+                <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="{{ $pref->age }}" oninput="inputAge()" required>
+
+                <label for="gewensttemp">Prefered Temperature (°C)</label>
+                <input name="gewensttemp" id="gewensttemp" type="number" min="-20" max="50" value="{{ $pref->gewensttemp }}" required>
+
+                <label for="gewensthum">Prefered Humidity (%)</label>
+                <input name="gewensthum" id="gewensthum" type="number" min="0" max="100" value="{{ $pref->gewensthum }}" required>
+
+                <h4 id="-js--preference--age">Your age: {{$pref->age}}</h4>
+                <p id="-js--preference--recommended"> </p>
+
+                <button class="templucht_button templucht_refresh" type="submit" onclick="submitForm()">Submit</button>
+
+                
+            </form>
+        </article>
+    </main>
+    
+
+    
     
 </body>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
