@@ -155,6 +155,7 @@ li{
     box-shadow: .4rem .4rem 0 var(--button-border);
     color: var(--text-color);
     transition: .5s;
+    font-size: 1.5rem;
 }
 
 .templucht_notification_close:hover{
@@ -177,6 +178,7 @@ li{
     box-shadow: .4rem .4rem 0 var(--button-border);
     color: var(--text-color);
     transition: .5s;
+    font-size: 1.5rem;
 }
 
 

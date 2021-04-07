@@ -109,7 +109,7 @@
         if(localStorage.getItem("submit") == "true"){
             document.getElementById("-js--submitted").style.height  = "7rem";
             localStorage.setItem("submit", "false");
-            setTimeout(function(){ document.getElementById("-js--submitted").style.height = "0rem"}, 3000);
+            setTimeout(function(){ document.getElementById("-js--submitted").style.height = "0rem"}, 5000);
         }
      }
 
