@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
     <!-- <meta http-equiv="refresh" content="3"> -->
+    <script src="/js/reloader.js" charset="utf-8"></script>
     <title>@yield('titel')</title>
 </head>
 <script>
@@ -51,6 +52,7 @@ function sleep(ms) {
     console.log("Refreshed"); 
 }
 </script>
+
     <body>
     <main class="main">
         <section class="main__titleWrapper">
@@ -65,8 +67,10 @@ function sleep(ms) {
             <button class="main__button" id="js--startButton" onclick="startTijd();" type="button">Start tijd</button>    
 
             <h3 class="main__tekst">Telefoon is</h3>
-            <h3 class="main__tekst main__tekst--aanwezig" id="js--aanwezig">{{$show}}</h3>
+            <h3 class="main__tekst main__tekst--aanwezig" id="js--aanwezig">.</h3>
             <h3 class="main__tekst">aanwezig</h3>
+            <button class="main__button" onclick="newTijd()" type="button">Joe</button>
+            
 
             <section class="main__buttonContainer">
                 <a href="/noodgeval" class="main__button--noodgeval">Noodgeval</a>
