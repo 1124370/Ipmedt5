@@ -107,11 +107,11 @@
         var button = document.getElementById("-js--menu--button")
 
         if(menuOpen){
-            menu.style.height = "0rem"
+            menu.style.height = "0%"
             button.innerHTML = "&#9776;"
             menuOpen = false
         } else {
-            menu.style.height = "25.5rem"
+            menu.style.height = "100%"
             button.innerHTML = "&#10005;"
             menuOpen = true
         }
@@ -308,16 +308,14 @@
         <h1 class="templucht_header_title">Templucht</h1>
         
         <button class="templucht_header_button" id="-js--menu--button" onclick="openMenu()">&#9776;</button>
-        <div class="templucht_header_menu" id="-js--menu">
-            <ul class="templucht_header_menu_list" id="-js--menu">
-                <li class="templucht_header_menu_list_item templucht_header_menu_list_item-first"><a href="/templucht" class="active">Templucht</a></li>
-                <li class="templucht_header_menu_list_item"><a href="/templucht">Telefoon</a></li>
-                <li class="templucht_header_menu_list_item"><a href="/templucht">Geluid</a></li>
-                <li class="templucht_header_menu_list_item"><a href="/templucht">Afstand</a></li>
-                <li class="templucht_header_menu_list_item templucht_header_menu_list_item-last"><a href="/templucht">Timer</a></li>
+        <ul class="templucht_header_menu" id="-js--menu">
+            <li class="templucht_header_menu_item templucht_header_menu_item-first"><a href="/templucht" class="active">Templucht</a></li>
+            <li class="templucht_header_menu_item"><a href="/templucht">Telefoon</a></li>
+            <li class="templucht_header_menu_item"><a href="/templucht">Geluid</a></li>
+            <li class="templucht_header_menu_item"><a href="/templucht">Afstand</a></li>
+            <li class="templucht_header_menu_item templucht_header_menu_item-last"><a href="/templucht">Timer</a></li>
         </ul>
         
-        </div>
         
     </header>
     

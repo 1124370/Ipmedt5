@@ -93,46 +93,44 @@ h4{
 }
 
 .templucht_header_menu_list{
-    width: 20rem;
+    width: 100%;
     float: right;
 }
 
-.templucht_header_menu_list_item{
+.templucht_header_menu_item{
     background-color: var(--bg-main-color);
     float: right;
-    width: 20rem;
+    width: 100%;
     margin-left: 0;
     list-style: none;
 }
 
-.templucht_header_menu_list_item > a{
+.templucht_header_menu_item > a{
     display: block;
-    padding: 1.5rem 7rem 1.5rem 3rem;
+    padding: 2rem 7rem 2rem 3rem;
     color: var(--text-color);
     text-decoration: none;
     text-align: left;
+    border-bottom: solid rgb(126, 126, 126);
+}
+
+.templucht_header_menu_item > a:hover{
+    background-color: var(--text-color);
+    color: var(--bg-main-color);
     
 }
 
-.templucht_header_menu_list_item > a:hover{
-    background-color: var(--text-color);
-    color: var(--bg-main-color);
-    border-bottom-left-radius: 2.5rem;
+.templucht_header_menu_item-first{
     border-top-left-radius: 2.5rem;
 }
 
-.templucht_header_menu_list_item-first{
-    border-top-left-radius: 2.5rem;
-}
-
-.templucht_header_menu_list_item-last{
+.templucht_header_menu_item-last{
     border-bottom-left-radius: 2.5rem;
 }
 
 .active{
     background-color: var(--button-border);
-    border-bottom-left-radius: 2.5rem;
-    border-top-left-radius: 2.5rem;
+    
 }
 
 .templucht_first{
@@ -142,6 +140,7 @@ h4{
 main{
     background-color: var(--bg-main-color);
     padding: 0rem 5%;
+    height: 100%;
     border-radius: 2.5rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -326,6 +325,10 @@ input{
         width: 50%;
     }
 
+
+    .templucht_header_menu_item{
+        width: 20%;
+    }
 
     main{
         grid-template-areas: 
