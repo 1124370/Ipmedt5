@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="\css\templucht.css">
 
     <script>
+        var menuOpen = false;
         var valueMessage;
         window.onload = function () {       
         inputAge();
@@ -101,9 +102,35 @@
       
      }
 
+     function openMenu(){
+        var menu = document.getElementById("-js--menu")
+        var button = document.getElementById("-js--menu--button")
+
+        if(menuOpen){
+            menu.style.height = "0rem"
+            button.innerHTML = "&#9776;"
+            menuOpen = false
+        } else {
+            menu.style.height = "25.5rem"
+            button.innerHTML = "&#10005;"
+            menuOpen = true
+        }
+     }
+
      function submitForm(){
+        var age = document.forms["settingsForm"]["age"].value;
+        var temp = document.forms["settingsForm"]["gewensttemp"].value;
+        var hum = document.forms["settingsForm"]["gewensthum"].value;
+        if(age >= 0 && age <= 120 && temp >= -20 && temp <= 50 && hum >= 0 && hum <= 100){
+            console.log("FUCK YEAH")
+            localStorage.setItem("submit", "true");
+            document.getElementById("-js--form").submit();
+            location.reload();
+        } else {
+            console.log("FUCK NO")
+        }
+
         localStorage.setItem("submit", "true");
-        document.getElementById("-js--form").submit();
      }
 
      function checkSubmit(){
@@ -277,12 +304,28 @@
 
 </head>
 <body class="templucht">
-    <h1 class="templucht_title">Temperature/Humidity</h1>
+    <header class="templucht_header">
+        <h1 class="templucht_header_title">Templucht</h1>
+        
+        <button class="templucht_header_button" id="-js--menu--button" onclick="openMenu()">&#9776;</button>
+        <div class="templucht_header_menu" id="-js--menu">
+            <ul class="templucht_header_menu_list" id="-js--menu">
+                <li class="templucht_header_menu_list_item templucht_header_menu_list_item-first"><a href="/templucht" class="active">Templucht</a></li>
+                <li class="templucht_header_menu_list_item"><a href="/templucht">Telefoon</a></li>
+                <li class="templucht_header_menu_list_item"><a href="/templucht">Geluid</a></li>
+                <li class="templucht_header_menu_list_item"><a href="/templucht">Afstand</a></li>
+                <li class="templucht_header_menu_list_item templucht_header_menu_list_item-last"><a href="/templucht">Timer</a></li>
+        </ul>
+        
+        </div>
+        
+    </header>
+    
+    
 
     <div class="templucht_submitted" id="-js--submitted">
         <p>Settings changed!</p>
     </div>
-
     <article class="templucht_notification" id="-js--notification">
         <h1>! WARNING !</h1>
             <section class="templucht_notification_section" id="-js--notification--temp">
@@ -344,7 +387,7 @@
 
         <article>
             <h2>Prefered Values</h2>
-            <h3>Temperature {{$pref->gewensthum}} °Celsius</h3>
+            <h3>Temperature {{$pref->gewensttemp}} °Celsius</h3>
             <h3>Humidity: {{$pref->gewensthum}}%   </h3>
         </article>
 
@@ -368,25 +411,23 @@
 
         <article>
             <h2>Settings</h2>
-            <form id="-js--form" method="POST" action="/templucht">
+            <form id="-js--form" method="POST" action="/templucht" name="settingsForm">
                 @csrf
                 
-                <label for="age">Age: </label>
+                <label for="age">Age: (0-120)</label>
                 <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="{{ $pref->age }}" oninput="inputAge()" required>
 
-                <label for="gewensttemp">Prefered Temperature (°C)</label>
+                <label for="gewensttemp">Prefered Temperature (°C) (-20-50)</label>
                 <input name="gewensttemp"  type="number" min="-20" max="50" value="{{ $pref->gewensttemp }}" required>
 
-                <label for="gewensthum">Prefered Humidity (%)</label>
+                <label for="gewensthum">Prefered Humidity (%) (0-100)</label>
                 <input name="gewensthum"  type="number" min="0" max="100" value="{{ $pref->gewensthum }}" required>
 
                 <h4 id="-js--preference--age">Your age: {{$pref->age}}</h4>
                 <p id="-js--preference--recommended"> </p>
-
-                <button class="templucht_button templucht_refresh" type="submit" onclick="submitForm()">Submit</button>
-
-                
+                <button class="templucht_button templucht_refresh" onclick="submitForm()">Submit</button>
             </form>
+            
         </article>
     </main>
     
