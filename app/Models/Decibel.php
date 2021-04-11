@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Led extends Model
+class Decibel extends Model
 {
-    protected $table ='niet_storen';
+    protected $table = "decibel";
+    public $timestamps = false;
 }

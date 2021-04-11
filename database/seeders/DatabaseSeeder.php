@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            NietStorenTableSeeder::class   
+            DecibelTableSeeder::class,
+            NietStorenTableSeeder::class,
+             
         ]);
     }
 }

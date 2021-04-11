@@ -14,8 +14,10 @@ use App\Http\Controllers\LedController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/decibel', '\App\Http\Controllers\DecibelController@show');
+// Route::post('/decibel', '\App\Http\Controllers\DecibelController@store');
+Route::get('/nietstoren', 'App\Http\Controllers\LedController@aanuit');
 
-Route::get('/led', 'App\Http\Controllers\LedController@aanuit');
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
