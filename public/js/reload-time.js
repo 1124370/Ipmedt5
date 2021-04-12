@@ -4,7 +4,19 @@ function refresh() {
         location.reload()
     }, 2000);
 }
-refresh()
+
+function createproduct() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+
+
+  function gotowork() {
+    var popup = document.getElementById("gawerken");
+    popup.classList.toggle("show");
+  }
+ 
+// refresh()
 
 // function sleep(ms) {
 //     return new Promise(resolve => setTimeout(resolve, ms));

@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\vakkenController;
 
+Route::post('/vakken', [vakkenController::class, 'store']);
+Route::get('/vakken', [vakkenController::class, 'index']);
+Route::post('/aanhetwerk', [aanhetwerkController::class, 'newvak']);
+
+
 Route::get('/timer', function () {
     return view('welcome');
 });
 
-Route::get('/vakken', [vakkenController::class, 'index']);

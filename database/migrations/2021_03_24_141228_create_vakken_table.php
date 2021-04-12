@@ -14,10 +14,9 @@ class CreateVakkenTable extends Migration
     public function up()
     {
         Schema::create('vakken', function (Blueprint $table) {
-            $table->id();
             $table->string('naam')->unique();
             $table->integer('benodigetijd');
-            $table->integer('gewerktetijd');
+            $table->integer('gewerktetijd')->default(0);
         });
     }
 

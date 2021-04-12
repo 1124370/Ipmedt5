@@ -10,7 +10,27 @@
 </head>
 <body>
     <section class="vakkenDashboard a-popup">
-    {{$inputtime->ingesteldetijd}}
+    
+        <div>
+            <h2>School Vakken</h2>
+            <button onclick="createproduct()">Maak een nieuw vak aan</button>
+                <div class="popup" >
+                    <div class="popuptext" id="myPopup">
+                    <form method="POST" action="/vakken" >
+                        @csrf
+                        <label for="naam">Naam</label>
+                        <input name="naam" id="naam" type="text">
+
+                        <label for="benodigetijd">benodigetijd</label>
+                        <input name="benodigetijd" id="benodigetijd" type="number">
+
+                        <button type="submit">Create vak</button>
+
+                    </form> 
+                    </div>
+                </div>   
+        </div>
+
         <ul>
             @foreach($vakken as $vak)
                 <li class="u-list-style-none">    
@@ -22,6 +42,24 @@
                 </div><br>
             @endforeach
         </ul> 
+
+        <button onclick="gotowork()">ga werken</button>
+                <div class="popup" >
+                    <div class="popuptext" id="gawerken">
+                    <form method="POST" action="/vakken" >
+                    <label for="werkvak">Naam</label>
+                        <select name="werkvak" id="werkvak" >
+                            @foreach($vakken as $vak)
+                                <option value="{{$vak->naam}}">{{$vak->naam}}</option>
+                            @endforeach
+                        </select>
+
+                        <button type="submit">Create vak</button>
+
+                    </form> 
+                    </div>
+                </div> 
+
     </section>
 </body>
 
