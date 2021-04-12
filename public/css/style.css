@@ -11,57 +11,116 @@ html{
 body{
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
-    height: 100vh;
+    height: auto;
     background-color:black;
 }
 
-
-
-
-/* homepagina */
+/* -------------------------------------------------------------------------------------- */
+/* Modal */
 .main__modal {
-  display: block;
+  display: flex; /* Moet veranderen naar flex!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   position: fixed;
   z-index: 1;
-  padding-top: 10rem;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
 }
 
-.main__modal__content {
-  background-color: #fefefe;
-  margin: auto;
+.modal__content {
+  background-color: #0E0E0E;
   border: 1px solid #888;
-  width: 60%;
-  height: 10rem;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.modal__titel{
+  font-size: 250%;
+  text-align: center;
+  margin-top: 4rem;
+  color: white;
+}
+
+.modal__tekstContainer{
+  color: white;
+  width: 100%;
+  margin: 1rem;
+  font-size: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.modal__tekst{
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.modal__inputContainer{
+  width: 100%;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  margin-top: 2rem;
 }
 
-
-.main__modal__close{
-  margin: 1rem 2rem auto auto;
-  color: #7a7a7a;
-  text-align: right;
-  font-size: 28px;
-  font-weight: bold;
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
+.inputContainer__tekst{
+  margin: auto auto 0 auto;
+  font-size: 160%;
 }
 
-.main__modal__close:hover,
-.main__modal__close:focus {
-  color: #000;
+.inputContainer__input{
+  margin: 3rem auto 2rem auto;
+  font-size:140%;
+  padding-left: 0.5rem;
+  width: 10rem;
+}
+
+.modal__buttonContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.modal__button{
+  font-size:180%;
+  padding: 1rem 4rem;
+  margin-bottom: 4rem;
+  border: none;
+  background-color: #1E6F5C;
+  color: white;
   text-decoration: none;
-  cursor: pointer;
+}
+
+.modal__button:hover{
+  cursor:pointer;
+  background-color: #34bf9e;
+}
+
+@media(min-width: 50rem){
+  .modal__titel{
+    font-size: 300%;
+  }
+  .modal__tekstContainer{
+    font-size: 150%;
+  }
+  .modal__button{
+    font-size: 200%;
+  }
 }
 
 
+/* --------------------------------------------------- */
+/* homepagina */
 .main{
     width: 100%;
     height: 100%;
@@ -70,9 +129,8 @@ body{
     justify-content: flex-start;
     box-sizing: border-box;
     flex-direction: column;
-    gap: 2rem;
+    background: linear-gradient(90deg, rgba(127,34,234,1) 46%, rgba(192,34,234,1) 100%);
 }
-
 
 .main__titleWrapper{
     width: 100%;
@@ -82,42 +140,40 @@ body{
     align-items: center;
     box-sizing: border-box;
     padding: 6rem;
-    background-color: #7F22EA;
+    font-size: 120%;
 }
 
 .main__title{
-    color: #eeeeee;
-    text-align: center; 
-    font-size: 200%;  
+  color: #eeeeee;
+  text-align: center; 
+  font-size: 200%;  
+}
+
+.main__cardWrapper{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 5rem;
+  border-top-right-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .main__card{
-    width: 85%;
-    height: 76%;
-    background-color: #0E0E0E;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    flex-direction: column;
-}
-
-@media(min-width: 56.25rem){
-  .main__card{
-    width: 55%;
-  }
-}
-
-@media(min-width: 93.75rem){
-  .main__card{
-    width: 45%;
-  }
-}
-
-.main__input{
-  margin: 5rem auto 2rem auto;
-  font-size:150%;
+  width: 85%;
+  height: 65rem;
+  background-color: #0E0E0E; /*Moet veranderd worden naar #0E0E0E */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
 }
 
 .main__button{
@@ -136,8 +192,8 @@ body{
 }
 
 .main__tijd{
-  font-size: 380%;
-  margin: 5rem auto 5rem auto;
+  font-size: 300%;
+  margin: 1rem auto 2rem auto;
   display: none;
 }
 
@@ -145,44 +201,25 @@ body{
   display: none;
 }
 
-
 .main__tekst{
-    width: 100%;
-    font-size: 250%;
-    text-align: center;
+  width: 100%;
+  font-size: 200%;
+  text-align: center;
 }
 
 .main__tekst--aanwezig{
-    text-transform: uppercase;
-    font-size: 350%;
-}
-
-@media(min-width:32.25rem){
-  .main__input{
-    font-size: 180%;
-  }
-  .main__button{
-    font-size:180%;
-  }
-  body{
-    height: 105vh;
-  }
-}
-
-@media(min-width:37.5rem){
-  .main__tijd{
-    font-size: 500%;
-  }
+  text-transform: uppercase;
+  font-size: 350%;
 }
 
 .main__buttonContainer{
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    width: 100%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    box-sizing: border-box;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 .main__button--noodgeval {
@@ -201,7 +238,7 @@ body{
   text-decoration: none;
   border-radius: 4rem;
   font-size: 150%;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 .main__button--noodgeval:hover {
@@ -264,7 +301,35 @@ a:active.main__button--noodgeval:after {
   left: 1px;
 }
 
+@media(min-width: 37.5rem){
+  .main__card{
+    width: 65%;
+  }  
+}
 
+@media(min-width: 50rem){
+  .main__card{
+    height: 65rem;
+  }
+  .main__tekst{
+    font-size: 250%;
+  } 
+  .main__tijd{
+    font-size:350%;
+  } 
+  .main__button{
+    font-size: 150%;
+  }
+}
+
+@media(min-width: 62.5rem){
+  .main__card{
+    width: 45%;
+  }  
+}
+
+
+/* ------------------------------------------------------------------------------- */
 /* noodgeval pagina */
 .mainNoodgeval{
   width: 100%;

@@ -12,11 +12,12 @@
         localStorage.setItem("js--tijd", inputVal);
         document.getElementById("js--aftellen").innerHTML = localStorage.getItem("js--tijd");
         document.getElementById("js--inputTijd").style.display = "none";
+        document.getElementById("js--modal").style.display = "none";
         document.getElementById("js--setButton").style.display = "none";
         document.getElementById("js--startButton").style.display = "block";
         document.getElementById("js--aftellen").style.display = "block";
-        if(document.getElementById("js--inputTijd").value == null || document.getElementById("js--inputTijd").value == ""){
-            window.location.reload();        
+        if(document.getElementById("js--inputTijd").value == null || document.getElementById("js--inputTijd").value == "" || document.getElementById("js--inputTijd").value <= 0){
+            window.location.reload();       
         }
     }
 
@@ -56,11 +57,8 @@
         </section>
 
         <section class="main__cardWrapper">
-            <article class="main__card">    
-                <input class="main__input" type="number" placeholder="Minuten" id="js--inputTijd" required>
-                <h3 class="main__tekst main__tekst--minuten">Minuten</h3>
-                <button class="main__button" id="js--setButton" onclick="getInputValue();">Submit</button>
-            
+            <article class="main__card"> 
+                <h3 class="main__tekst">Minuten:</h3>               
                 <h2 class="main__tijd" id="js--aftellen">00:00:00</h2>
                 <button class="main__button" id="js--startButton" onclick="startTijd();" type="button">Start tijd</button>    
 
@@ -74,34 +72,33 @@
             </article> 
 
             <modal id="js--modal" class="main__modal">
-                <section class="main__modal__content">
-                <span class="main__modal__close" id="js--close" onclick="close()">&times;</span>
+                <section class="modal__content">
+                    <h3 class="modal__titel">Stel tijd in</h3>
+                    <section class="modal__tekstContainer">
+                        <p class="modal__tekst">1. Leg uw telefoon op de sensor</p>
+                        <p class="modal__tekst">2. Voer een aantal minuten in en klik op ga door</p>
+                    
+                        <section class="modal__inputContainer">
+                            <p class="inputContainer__tekst">Minuten: </p>
+                            <input class="inputContainer__input" type="number" placeholder="Minuten" id="js--inputTijd" required>
+                        </section>
+                    </section>
+
+                    <section class="modal__buttonContainer">
+                        <button class="modal__button" id="js--setButton" onclick="getInputValue();">Ga door</button>
+                    </section>
                 </section>
                 
     	    </modal>
 
 
         </section> 
-
-        <button class="main-home__product__buttonContainer__button main-home__product__buttonContainer__button--leesMeer"onclick="leesmeer()">Lees meer</button>
     </main>
 
     
 @endsection
 
 
-
-<!-- <div class="main-home__modal__modal-content">
-                <h1 class="main-home__modal__modal-content__productnaam" id="js--naam" tabindex="0">Spiderman: Miles Morals</h1>
-                <span class="main-home__modal__modal-content__close" id="js--close" tabindex="0" aria-label="sluiten" onclick="close()">&times;</span>
-                <div class="main-home__modal__modal-content__product-info">
-                <h1 class="main-home__modal__modal-content__product-info__prijs">€59,98</h1>
-                <p class="main-home__modal__modal-content__product-info__tekst">Dit is wat tekst. Zoals ik al zei is dit een uitzonderlijk mooi product en goed van kwaliteit. Hier staat meer tekst, omdat dat de opdracht is. Het is ook redelijk logisch dat als je klikt op meer informatie dat er ook daadwerkelijk meer informatie zichtbaar is i.p.v. hetzelfde.</p>
-                </div>
-                <div class="main-home__modal__modalButtons">
-                <button class="main-home__modal__modalButtons__button" tabindex="0" aria-label="in winkelwagen">In winkelwagen</button>
-                <button class="main-home__modal__modalButtons__button" tabindex="0" aria-label="op verlanglijstje">Op verlanglijstje</button>
-                </div> -->
 
 
 
