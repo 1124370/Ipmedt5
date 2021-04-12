@@ -14,7 +14,7 @@ class noodgevalTableSeeder extends Seeder
     public function run()
     {
         DB::table('noodgeval')->insert([
-            'noodgeval_on' => 'uit'
+            'noodgeval_on' => 'Uit'
         ]);
     }
 }

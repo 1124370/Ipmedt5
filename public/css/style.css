@@ -15,6 +15,53 @@ body{
     background-color:black;
 }
 
+
+
+
+/* homepagina */
+.main__modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding-top: 10rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.main__modal__content {
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 60%;
+  height: 10rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+}
+
+
+.main__modal__close{
+  margin: 1rem 2rem auto auto;
+  color: #7a7a7a;
+  text-align: right;
+  font-size: 28px;
+  font-weight: bold;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+}
+
+.main__modal__close:hover,
+.main__modal__close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
 .main{
     width: 100%;
     height: 100%;

@@ -1,16 +1,13 @@
+function newTijd(){
+  const status = document.getElementById("js--aanwezig");
 
-     
-  
-      function newTijd(){
-        const status = document.getElementById("js--aanwezig");
-  
-        const BASE_URL = "/api/aanwezig";
+  const BASE_URL = "/api/aanwezig";
 
-        fetch(BASE_URL) 
-            .then(response => response.json())
+  fetch(BASE_URL) 
+    .then(response => response.json())
 
-            .then(data => status.innerHTML = data.aanwezig);
-        }
+    .then(data => status.innerHTML = data.aanwezig);
+}
 
   
 
