@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/main.js" defer></script>
     <title>@yield('title')</title>
@@ -17,9 +18,6 @@
         <nav class="header__menu">
             <ul class="header__list">
                 <li class="header__item"><a href="/register">Sign in / Register</a></li>
-                <li class="header__item"><a href="/product">Alle Items</a></li>
-                <li class="header__item"><a href="/userproducts">Mijn Items</a></li>
-                <li class="header__item"><a href="/product/create">Share een item</a></li>
             </ul>
         </nav>
     </header>
@@ -31,5 +29,7 @@
         <p class="footer__text"> © Fijne Werkplek 2021</p>
 
     </footer>
+
+
 </body>
 </html>

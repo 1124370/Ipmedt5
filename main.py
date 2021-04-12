@@ -21,14 +21,14 @@ def sendToDb(data):
     mydb.commit()
 
 while True:
-    # mycursor.execute("Select * FROM niet_storen;")
-    # for x in mycursor:
-    #     print(x[1])
-    # if x[1] == 'aan':
-    #     print(x[1])
-    #     port.write("l1")
-    # else:
-    #     port.write("l0")
+    mycursor.execute("Select * FROM niet_storen;")
+    for x in mycursor:
+        print(x[1])
+    if x[1] == 'aan':
+        print(x[1])
+        port.write("l1")
+    else:
+        port.write("l0")
     time.sleep(1)
 
 
