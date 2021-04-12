@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'App\Http\Controllers\AanwezigController@show');
-Route::get('/noodgeval', 'App\Http\Controllers\NoodgevalController@aanuit');
+Route::get('/stop', 'App\Http\Controllers\NoodgevalController@aanuit');
 
 
 

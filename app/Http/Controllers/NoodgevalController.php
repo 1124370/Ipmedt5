@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 class NoodgevalController extends Controller
 {
     public function aanuit(){
-        $noodgeval = \App\Models\Noodgeval::first();
+        $stop = \App\Models\Stop::first();
 
-        if($noodgeval->noodgeval_on == 'uit'){
-            $noodgeval->noodgeval_on = 'aan';
+        if($stop->stop_on == 'uit'){
+            $stop->stop_on = 'aan';
         }
         else{
-            $noodgeval->noodgeval_on = 'uit';
+            $stop->stop_on = 'uit';
         }
-        $noodgeval->save();
+        $stop->save();
 
-        return view('noodgeval', ['noodgeval' => $noodgeval->noodgeval_on]);
+        return view('stop', ['stop' => $stop->stop_on]);
     }
 }

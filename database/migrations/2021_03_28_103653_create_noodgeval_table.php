@@ -13,9 +13,9 @@ class CreateNoodgevalTable extends Migration
      */
     public function up()
     {
-        Schema::create('noodgeval', function (Blueprint $table) {
+        Schema::create('stop', function (Blueprint $table) {
             $table->id();
-            $table->string('noodgeval_on', 255);
+            $table->string('stop_on', 255);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateNoodgevalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('noodgeval');
+        Schema::dropIfExists('stop');
     }
 }

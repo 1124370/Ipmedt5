@@ -308,6 +308,9 @@ a:active.main__button--noodgeval:after {
 }
 
 @media(min-width: 50rem){
+  .main__title{
+    font-size: 280%;
+  }
   .main__card{
     height: 65rem;
   }
@@ -324,106 +327,59 @@ a:active.main__button--noodgeval:after {
 
 @media(min-width: 62.5rem){
   .main__card{
-    width: 45%;
+    width: 50%;
+    height: 75rem;
   }  
+  .main__tekst{
+    font-size: 300%;
+  } 
+  .main__tijd{
+    font-size:400%;
+  } 
+  .main__button{
+    font-size: 180%;
+  }
 }
 
 
 /* ------------------------------------------------------------------------------- */
 /* noodgeval pagina */
-.mainNoodgeval{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-  box-sizing: border-box;
-  gap: 2rem;
-}
-
-.mainNoodgeval__card{
-  width: 85%;
-  height: 80%;
-  background-color: #0E0E0E;
-  color: white;
+.main__card--stop{
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  flex-direction: column;
-  gap: 1rem;
+  height: auto;
+  margin-bottom: 8rem;
 }
 
-@media(min-width:62.5rem){
-  .mainNoodgeval__card{
-    width:75%;
-  }
-}
-
-.mainNoodgeval__tekst{
-  font-size:150%;
-}
-
-.mainNoodgeval__tekst--noodgeval{
+.main__tekst--stop{
   text-transform: uppercase;
-  font-size:300%;
 }
 
-.mainNoodgeval__buttonContainer{
-  width: 100%;
-  margin-top: 7rem;
+.main__buttonContainer--stop{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
   flex-direction: column;
-  gap: 2rem;
+  width: 100%;
+  margin-top: 3rem;
 }
 
-.mainNoodgeval__button{
-  text-decoration: none;
-  border:none;
-  padding: 2rem;
-  font-size: 160%;
-  background-color:#7F22EA;
-  color: white;
+.main__button--terug{
+  margin-bottom: 1rem;
+
 }
 
-.mainNoodgeval__button:hover{
+.main__a{
+  color: #eeeeee;
+  margin-bottom: 3rem;
+}
+
+.main__button--terug:hover{
   cursor:pointer;
   background-color: #ac70f1;
 }
 
-.mainNoodgeval__button--terug{
-  background-color: transparent;
-  border: 0.3rem solid #7F22EA;
-  transition: 1s all;
-  border-radius: 4rem;
-  font-size:90%;
-}
 
-@media(min-width:37.5rem){
-  .mainNoodgeval__tekst{
-      font-size:250%;
-  }
-  .mainNoodgeval__tekst--noodgeval{
-    font-size: 500%;
-  }
-  
-  .mainNoodgeval__button{
-    font-size:200%;
-  }
-  .mainNoodgeval__button--terug{
-    font-size:100%;
-  }  
-}
-
-@media(min-width:62.5rem){  
-  .mainNoodgeval__button{
-    font-size:250%;
-  }
-  .mainNoodgeval__button--terug{
-    font-size:120%;
-  }
-  
-}

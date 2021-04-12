@@ -6,6 +6,16 @@
 
 @section('script')
 <script>    
+    //verander kleur wanneer value wijzigd
+    function changeColor(){        
+        if(document.getElementById("js--aanwezig").innerHTML == "NIET"){
+            console.log("nee");
+        }
+        if(document.getElementById("js--aanwezig").innerHTML == "WEL"){
+            document.getElementById("js--aanwezig").style.color = "green";
+        }
+    }
+
     //Input tijd, als niks invoert refresh dan de pagina waardoor je opnieuw iets moet invoeren
     function getInputValue() {
         let inputVal = document.getElementById("js--inputTijd").value;
@@ -36,11 +46,12 @@
             }           
             document.getElementById("js--aftellen").innerHTML = afteltijd;
             newTijd();
+            changeColor(); 
             await sleep(1000);        
         } 
-        //Als de tijd gelijk is aan 
+        //Als de tijd gelijk is aan 0, dan noodgeval pagina oproepen
         if(afteltijd <= 0){
-            window.location.href = '/noodgeval';
+            window.location.href = '/stop';
         }  
     }
 
@@ -67,7 +78,7 @@
                 <h3 class="main__tekst">aanwezig</h3>                
 
                 <section class="main__buttonContainer">
-                    <a href="/noodgeval" class="main__button--noodgeval">Noodgeval</a>
+                    <a href="/stop" class="main__button--noodgeval">Noodgeval</a>
                 </section>      
             </article> 
 
@@ -80,7 +91,7 @@
                     
                         <section class="modal__inputContainer">
                             <p class="inputContainer__tekst">Minuten: </p>
-                            <input class="inputContainer__input" type="number" placeholder="Minuten" id="js--inputTijd" required>
+                            <input class="inputContainer__input" type="number" id="js--inputTijd" value="0" required>
                         </section>
                     </section>
 
@@ -93,9 +104,7 @@
 
 
         </section> 
-    </main>
-
-    
+    </main>    
 @endsection
 
 
