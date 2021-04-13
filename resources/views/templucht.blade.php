@@ -7,14 +7,16 @@
     <meta http-equiv="refresh" content="300">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Templucht - Daniel</title>
-    <link rel="stylesheet" href="\css\templucht.css">
+    <link rel="stylesheet" href="/css/templucht.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
         var menuOpen = false;
         var valueMessage;
-        window.onload = function () {       
+        window.onload = function () {     
+        loadValues();  
         inputAge();
         var chart1 = new CanvasJS.Chart("chartContainerTemp", {
             animationEnabled: true,
@@ -102,12 +104,22 @@
       
      }
 
+     function loadValues(){
+        document.getElementById("-js--preference--age--input").value = "{{ $pref->age }}"
+        document.getElementById("-js--preference--temp--input").value = "{{ $pref->gewensttemp }}"
+        document.getElementById("-js--preference--hum--input").value = "{{ $pref->gewensthum }}"
+
+        console.log(document.getElementById("-js--preference--age--input").value)
+        console.log(document.getElementById("-js--preference--temp--input").value)
+        console.log(document.getElementById("-js--preference--hum--input").value)
+     }
+
      function openMenu(){
         var menu = document.getElementById("-js--menu")
         var button = document.getElementById("-js--menu--button")
 
         if(menuOpen){
-            menu.style.height = "0%"
+            menu.style.height = "0rem"
             button.innerHTML = "&#9776;"
             menuOpen = false
         } else {
@@ -412,14 +424,14 @@
             <form id="-js--form" method="POST" action="/templucht" name="settingsForm">
                 @csrf
                 
-                <label for="age">Age: (0-120)</label>
-                <input name="age" id="-js--preference--age--input" type="number" min="0" max="120" value="{{ $pref->age }}" oninput="inputAge()" required>
+                <label>Age: (0-120)</label>
+                <input name="age" id="-js--preference--age--input" type="number" min="0" max="120"  oninput="inputAge()" required>
 
-                <label for="gewensttemp">Prefered Temperature (°C) (-20-50)</label>
-                <input name="gewensttemp"  type="number" min="-20" max="50" value="{{ $pref->gewensttemp }}" required>
+                <label>Prefered Temperature (°C) (-20-50)</label>
+                <input name="gewensttemp" id="-js--preference--temp--input" type="number" min="-20" max="50" required>
 
-                <label for="gewensthum">Prefered Humidity (%) (0-100)</label>
-                <input name="gewensthum"  type="number" min="0" max="100" value="{{ $pref->gewensthum }}" required>
+                <label>Prefered Humidity (%) (0-100)</label>
+                <input name="gewensthum" id="-js--preference--hum--input"  type="number" min="0" max="100" required>
 
                 <h4 id="-js--preference--age">Your age: {{$pref->age}}</h4>
                 <p id="-js--preference--recommended"> </p>
@@ -433,5 +445,5 @@
     
     
 </body>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    
 </html>
