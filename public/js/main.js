@@ -1,33 +1,32 @@
-// window.onload = function () {
+window.onload = function () {
 
-//     var chart = new CanvasJS.Chart("chartContainer", {
-//         animationEnabled: true,
-//         theme: "dark2",
-//         title: {
-//             text: "Gemiddelde decibel waarde"
-//         },
-//         axisY: {
-//             title: "Decibel waardes"
-//         },
-//         data: [{
-//             type: "line",
-//                 indexLabelFontSize: 16,
-//             dataPoints: [
-//                 { y: avg:{{$avgDecibel}}
-//                 { y: 0 },
-//                 { y: 10 },
-//                 { y: 20 },
-//                 { y: 30 },
-//                 { y: 40 },
-//                 { y: 50 },
-//                 { y: 60 },
-//                 { y: 70 },
-//                 { y: 80 },
-//                 { y: 90 },
-//                 { y: 100 },
-            
-//         }]
-// });
-// chart.render();
-     
-// }
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "dark2",
+        title: {
+            fontSize: 18,
+            text: "Gemiddelde decibel waarde"
+        },
+        axisY: {
+            title: "Decibel waardes"
+        },
+        data: [{
+            type: "line",
+            indexLabelFontSize: 16,
+            dataPoints: [
+                {y: {{$decibel[0]->waardes}} },
+                {y: {{$decibel[1]->waardes}} },
+                {y: {{$decibel[2]->waardes}} },
+                {y: {{$decibel[3]->waardes}} },
+                {y: {{$decibel[4]->waardes}} },
+                {y: {{$decibel[5]->waardes}} },
+                {y: {{$decibel[6]->waardes}} },
+                {y: {{$decibel[7]->waardes}} },
+                {y: {{$decibel[8]->waardes}} },
+                {y: {{$decibel[9]->waardes}} }
+
+            ]
+        }]
+    });
+    chart.render();
+    }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Led;
+use App\Models\Nietstoren;
 
 
 
@@ -11,17 +11,17 @@ class LedController extends Controller
 {
     public function aanuit()
     {
-        $led = Led::all()->first();
+        $niet_storen = Nietstoren::all()->first();
 
-        if ($led->led_on == 'uit')
+        if ($niet_storen->led_on == 'uit')
         {
-            $led->led_on = 'aan';
+            $niet_storen->led_on = 'aan';
         }
         else
         {
-            $led->led_on = 'uit';
+            $niet_storen->led_on = 'uit';
         }
-        $led->save();
-        return redirect('/');
+        $niet_storen->save();
+        return redirect('/decibel');
     }
 }

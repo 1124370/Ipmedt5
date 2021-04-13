@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
 )
 
 port = serial.Serial("/dev/ttyUSB0", baudrate=9600, timeout=3.0)
-
+mycursor = mydb.cursor()
 
 def sendToDb(data):
     print(data)
@@ -21,14 +21,14 @@ def sendToDb(data):
     mydb.commit()
 
 while True:
-    mycursor.execute("Select * FROM niet_storen;")
+    mycursor.execute("SELECT * FROM niet_storen;")
     for x in mycursor:
         print(x[1])
     if x[1] == 'aan':
         print(x[1])
-        port.write("l1")
+        port.write("b1")
     else:
-        port.write("l0")
+        port.write("b0")
     time.sleep(1)
 
 
@@ -36,12 +36,8 @@ while True:
     if rcv:
         sendToDb(rcv)
 
-#     os.system("python update.py")
-# else(rcv == 'N'):
-#     print("not")
-#     os.system("python no-update.py")
 
-time.sleep(1)
-mydb.commit()
+    time.sleep(1)
+    mydb.commit()
 
 mydb.close()
