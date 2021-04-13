@@ -294,7 +294,7 @@ button:hover {
   .decibel {
     padding: 3rem;
     position: relative;
-    height: 100rem;
+    height: auto;
     border-radius: 3rem 3rem 0 0;
     background-color: var(--bg-black);
   }
@@ -320,6 +320,95 @@ button:hover {
   .charts__value {
       padding: 2rem;
       color: #eee;
+  }
+  .canvasjs-chart-canvas  {
+      border-radius: 2.5rem;
+  }
+  .canvasjs-chart-credit {
+      display: none;
+  }
+
+  .nietStoren {
+      margin-top: 3rem;
+  }
+
+  .nietStoren__title {
+      margin: 1rem 0;
+  }
+
+  .nietStoren__text {
+    margin: 1.5rem 0;
+}
+
+.nietStoren__btn {
+    margin: 1rem 0;
+}
+
+/*toggle switch*/
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 3.4rem;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    border-radius: 5rem;
+    height: 2.6rem;
+    width: 2.6rem;
+    left: 0.4rem;
+    bottom: 0.4rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--btn-primary);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 0.1rem var(--btn-primary);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(2.6rem);
+    -ms-transform: translateX(2.6rem);
+    transform: translateX(2.6rem);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 3.4rem;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
   }
 
 /*responsive classes */
