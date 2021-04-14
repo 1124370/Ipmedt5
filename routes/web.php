@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\database\seeders;
+use App\Http\Controllers\LedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/decibel', '\App\Http\Controllers\DecibelController@show');
+Route::get('/nietstoren', 'App\Http\Controllers\LedController@aanuit');
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
