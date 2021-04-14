@@ -27,67 +27,67 @@
             modal.style.display = "flex";
             text.innerHTML = "Let op, je zit te ver van je scherm af. Ga wat dichterbij zitten voor een betere werkhouding.";
         }
-        // let yValues = [
-        //     app[0].Afstand,
-        //     app[1].Afstand,
-        //     app[2].Afstand,
-        //     app[3].Afstand,
-        //     app[4].Afstand,
-        //     app[5].Afstand,
-        //     app[6].Afstand,
-        //     app[7].Afstand,
-        //     app[8].Afstand,
-        // ];
-        // let xValues = [
-        //     app[0].created_at.substr(11, 8),
-        //     app[1].created_at.substr(11, 8),
-        //     app[2].created_at.substr(11, 8),
-        //     app[3].created_at.substr(11, 8),
-        //     app[4].created_at.substr(11, 8),
-        //     app[5].created_at.substr(11, 8),
-        //     app[6].created_at.substr(11, 8),
-        //     app[7].created_at.substr(11, 8),
-        //     app[8].created_at.substr(11, 8),
-        // ];
+        let yValues = [
+            app[0].Afstand,
+            app[1].Afstand,
+            app[2].Afstand,
+            app[3].Afstand,
+            app[4].Afstand,
+            app[5].Afstand,
+            app[6].Afstand,
+            app[7].Afstand,
+            app[8].Afstand,
+        ];
+        let xValues = [
+            app[0].created_at.substr(11, 8),
+            app[1].created_at.substr(11, 8),
+            app[2].created_at.substr(11, 8),
+            app[3].created_at.substr(11, 8),
+            app[4].created_at.substr(11, 8),
+            app[5].created_at.substr(11, 8),
+            app[6].created_at.substr(11, 8),
+            app[7].created_at.substr(11, 8),
+            app[8].created_at.substr(11, 8),
+        ];
 
-        // new Chart("screenHeight", {
-        //     type: "line",
-        //     data: {
-        //         labels: xValues,
-        //         lineColor: "#7f22ea",
-        //         datasets: [{
-        //             backgroundColor: 'rgb(255, 99, 132)', //chart kleur
-        //             borderColor: "rgba(255, 255, 255)", //lijn kleur
+        new Chart("screenHeight", {
+            type: "line",
+            data: {
+                labels: xValues,
+                lineColor: "#7f22ea",
+                datasets: [{
+                    backgroundColor: 'rgb(255, 99, 132)', //chart kleur
+                    borderColor: "rgba(255, 255, 255)", //lijn kleur
 
-        //             data: yValues,
-        //             height: 50,
+                    data: yValues,
+                    height: 50,
 
-        //         }]
-        //     },
-        //     options: {
-        //         maintainAspectRatio: false,
-        //         legend: {
-        //             labels: {
-        //                 fontColor: 'rgba(255, 255, 255)'
-        //             }
-        //         },
-        //         scales: {
-        //             yAxes: [{
-        //                 ticks: {
-        //                     fontColor: 'rgba(255, 255, 255)'
-        //                 },
-        //             }],
-        //             xAxes: [{
-        //                 ticks: {
-        //                     fontColor: 'rgba(255, 255, 255)'
-        //                 },
-        //             }]
-        //         }
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    labels: {
+                        fontColor: 'rgba(255, 255, 255)'
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'rgba(255, 255, 255)'
+                        },
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'rgba(255, 255, 255)'
+                        },
+                    }]
+                }
 
-        //     },
+            },
 
-        // });
-        // screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
+        });
+        screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
         console.log(keuze);
         
 
