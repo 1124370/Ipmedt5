@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use DB;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             inputtimeSeeder::class,
             checkAanwezigTableSeeder::class,
             noodgevalTableSeeder::class,
-            
+            TempluchtTableSeeder::class,
+            UserPreferencesTableSeeder::class,
         ]);
-
     }
 }

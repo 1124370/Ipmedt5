@@ -24,11 +24,14 @@ Route::post('/aanhetwerk', [aanhetwerkController::class, 'newvak']);
 Route::get('/telefoon', 'App\Http\Controllers\AanwezigController@show');
 Route::get('/stop', 'App\Http\Controllers\NoodgevalController@aanuit');
 
+// DanielDrof
+Route::get('/templucht', '\App\Http\Controllers\TempluchtController@show');
+Route::post('/templucht', '\App\Http\Controllers\TempluchtController@store');
+
 
 Route::get('/timer', function () {
     return view('welcome');
 });
-
 
 
 
