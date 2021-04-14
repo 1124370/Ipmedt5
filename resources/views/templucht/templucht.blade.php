@@ -31,18 +31,18 @@
                 type: "area",
                 indexLabelFontSize: 16,
                 dataPoints: [
-                    {y: {{$sum[0]->temperature}}, label: "{{$sum[0]->created_at}}" },
-                    {y: {{$sum[1]->temperature}}, label: "{{$sum[1]->created_at}}" },
-                    {y: {{$sum[2]->temperature}}, label: "{{$sum[2]->created_at}}" },
-                    {y: {{$sum[3]->temperature}}, label: "{{$sum[3]->created_at}}" },
-                    {y: {{$sum[4]->temperature}}, label: "{{$sum[4]->created_at}}" },
-                    {y: {{$sum[5]->temperature}}, label: "{{$sum[5]->created_at}}" },
-                    {y: {{$sum[6]->temperature}}, label: "{{$sum[6]->created_at}}" },
-                    {y: {{$sum[7]->temperature}}, label: "{{$sum[7]->created_at}}" },
-                    {y: {{$sum[8]->temperature}}, label: "{{$sum[8]->created_at}}" },
-                    {y: {{$sum[9]->temperature}}, label: "{{$sum[9]->created_at}}" },
-                    {y: {{$sum[10]->temperature}}, label: "{{$sum[10]->created_at}}" },
-                    {y: {{$sum[11]->temperature}}, label: "{{$sum[11]->created_at}}" }
+                    {y: {{$sum[0]->temperature}}, label: " " },
+                    {y: {{$sum[1]->temperature}}, label: " " },
+                    {y: {{$sum[2]->temperature}}, label: " " },
+                    {y: {{$sum[3]->temperature}}, label: " " },
+                    {y: {{$sum[4]->temperature}}, label: " " },
+                    {y: {{$sum[5]->temperature}}, label: " " },
+                    {y: {{$sum[6]->temperature}}, label: " " },
+                    {y: {{$sum[7]->temperature}}, label: " " },
+                    {y: {{$sum[8]->temperature}}, label: " " },
+                    {y: {{$sum[9]->temperature}}, label: " " },
+                    {y: {{$sum[10]->temperature}}, label: " " },
+                    {y: {{$sum[11]->temperature}}, label: " " }
                 ]
             }]
         });
@@ -64,18 +64,18 @@
                 type: "area",
                 indexLabelFontSize: 16,
                 dataPoints: [
-                    {y: {{$sum[0]->humidity}}, label: "{{$sum[0]->created_at}}" },
-                    {y: {{$sum[1]->humidity}}, label: "{{$sum[1]->created_at}}" },
-                    {y: {{$sum[2]->humidity}}, label: "{{$sum[2]->created_at}}" },
-                    {y: {{$sum[3]->humidity}}, label: "{{$sum[3]->created_at}}" },
-                    {y: {{$sum[4]->humidity}}, label: "{{$sum[4]->created_at}}" },
-                    {y: {{$sum[5]->humidity}}, label: "{{$sum[5]->created_at}}" },
-                    {y: {{$sum[6]->humidity}}, label: "{{$sum[6]->created_at}}" },
-                    {y: {{$sum[7]->humidity}}, label: "{{$sum[7]->created_at}}" },
-                    {y: {{$sum[8]->humidity}}, label: "{{$sum[8]->created_at}}" },
-                    {y: {{$sum[9]->humidity}}, label: "{{$sum[9]->created_at}}" },
-                    {y: {{$sum[10]->humidity}}, label: "{{$sum[10]->created_at}}" },
-                    {y: {{$sum[11]->humidity}}, label: "{{$sum[11]->created_at}}" }
+                    {y: {{$sum[0]->humidity}}, label: " " },
+                    {y: {{$sum[1]->humidity}}, label: " " },
+                    {y: {{$sum[2]->humidity}}, label: " " },
+                    {y: {{$sum[3]->humidity}}, label: " " },
+                    {y: {{$sum[4]->humidity}}, label: " " },
+                    {y: {{$sum[5]->humidity}}, label: " " },
+                    {y: {{$sum[6]->humidity}}, label: " " },
+                    {y: {{$sum[7]->humidity}}, label: " " },
+                    {y: {{$sum[8]->humidity}}, label: " " },
+                    {y: {{$sum[9]->humidity}}, label: " " },
+                    {y: {{$sum[10]->humidity}}, label: " " },
+                    {y: {{$sum[11]->humidity}}, label: " " }
                 ]
             }]
         });
