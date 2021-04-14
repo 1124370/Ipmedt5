@@ -17,6 +17,6 @@ class NoodgevalController extends Controller
         }
         $stop->save();
 
-        return view('stop', ['stop' => $stop->stop_on]);
+        return view('Telefoon.stop', ['stop' => $stop->stop_on]);
     }
 }

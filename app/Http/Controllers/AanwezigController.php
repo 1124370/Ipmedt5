@@ -8,7 +8,7 @@ class AanwezigController extends Controller
 {
     public function show(){
         $show = \App\Models\Aanwezig::first()->aanwezig;
-        return view('show', ['show' => $show]);
+        return view('Telefoon.show', ['show' => $show]);
     }
 }
   

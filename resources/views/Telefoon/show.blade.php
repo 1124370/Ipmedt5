@@ -1,4 +1,4 @@
-@extends('default')
+@extends('Telefoon.default')
 
 @section('titel')
     Telefoon

@@ -1,4 +1,4 @@
-@extends('default')
+@extends('Telefoon.default')
 
 @section('titel')
     Noodgeval
@@ -14,10 +14,10 @@
             <article class="main__card main__card--stop">
                 <h3 class="main__tekst">Stopfunctie staat</h3>
                 <h3 class="main__tekst main__tekst--stop">{{$stop}}</h3>
+                <p class="main__ondertekst">U kunt uw telefoon van de sensor afhalen</p>
 
                 <section class="main__buttonContainer--stop">
-                    <a href="/"><button class="main__button main__button--terug">Hoofdpagina</button></a>     
-                    <a href="{{ url('stop') }}" class="main__a">Stopfunctie uit/aan</a>         
+                    <a href="/telefoon"><button class="main__button main__button--terug">Hoofdpagina</button></a>             
                 </section>             
             </article> 
         </section>
