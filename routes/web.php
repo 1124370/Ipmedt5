@@ -29,6 +29,16 @@ Route::get('/templucht', '\App\Http\Controllers\TempluchtController@show');
 Route::post('/templucht', '\App\Http\Controllers\TempluchtController@store');
 
 
+
+
+
+
+//Victor afstanden
+Route::get('/screenDistance',[ScreenDistanceController::class, 'show']);
+Route::get('/screenHeight','App\Http\Controllers\ScreenHeightController@show');
+Route::get('/deskDistance','App\Http\Controllers\DeskDistanceController@show');
+
+
 Route::get('/timer', function () {
     return view('welcome');
 });
