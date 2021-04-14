@@ -1,28 +1,11 @@
-!<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8"> 
-    <meta name="author" content="Daniek de Groot">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Geluid</title>
-	<link rel="stylesheet" href="css/vakkan.css">
-    <script src="js/reload-time.js"> </script>
-</head>
-<body>
-	<header class="header">
-        <a href="/" class="header__logo">FijneWerkplek</a>
-            <input class="header__btn" type="checkbox" id="menu-btn" />
-            <label class="header__icon" for="menu-btn"><span class="navicon"></span></label>
-        <nav class="header__menu">
-            <ul class="header__list">
-            	<li class="header__item"><a href="/product">Dashboard</a></li>
-                <li class="header__item"><a href="/register">Geluid</a></li>
-                <li class="header__item"><a href="/product">To do list</a></li>
-                <li class="header__item"><a href="/register">Idealen werk houding</a></li>
-                <li class="header__item"><a href="/register">Tempratuur</a></li>
-            </ul>
-        </nav>
-    </header>
+@extends('default')
+@section('css')
+<link rel="stylesheet" href="css/vakkan.css">
+@endsection
+@section('js')
+<script src="js/reload-time.js"> </script>
+@endsection
+@section('content')
     <main>
         <section class="heading">
             <article class="heading__article">
@@ -98,6 +81,4 @@
 
     </main>
     
-</body>
-
-</html>
+@endsection
