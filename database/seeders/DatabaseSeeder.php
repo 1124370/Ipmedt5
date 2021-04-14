@@ -14,9 +14,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            tijdlooptSeeder::class,
+            vakkenSeeder::class,
+            inputtimeSeeder::class,
+            checkAanwezigTableSeeder::class,
+            noodgevalTableSeeder::class,
+            TempluchtTableSeeder::class,
+            UserPreferencesTableSeeder::class,
             DecibelTableSeeder::class,
             NietStorenTableSeeder::class,
-             
         ]);
     }
 }

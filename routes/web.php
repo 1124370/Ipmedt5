@@ -14,9 +14,35 @@ use App\Http\Controllers\LedController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', '\App\Http\Controllers\TempluchtController@show');
+
+//Daniek
+use App\Http\Controllers\vakkenController;
+
+Route::post('/vakken', [vakkenController::class, 'store']);
+Route::get('/vakken', [vakkenController::class, 'index']);
+Route::post('/aanhetwerk', [aanhetwerkController::class, 'newvak']);
+
+// DanielDuijf
+Route::get('/telefoon', 'App\Http\Controllers\AanwezigController@show');
+Route::get('/stop', 'App\Http\Controllers\NoodgevalController@aanuit');
+
+// DanielDrof
+Route::get('/templucht', '\App\Http\Controllers\TempluchtController@show');
+Route::post('/templucht', '\App\Http\Controllers\TempluchtController@store');
+
+// Joey
 Route::get('/decibel', '\App\Http\Controllers\DecibelController@show');
 Route::get('/nietstoren', 'App\Http\Controllers\LedController@aanuit');
 
-Route::get('/', function () {
-    return view('index');
-});
+//Victor afstanden
+use App\Http\Controllers\ScreenDistanceController;
+Route::get('/screenDistance',[ScreenDistanceController::class, 'show']);
+Route::get('/screenHeight','App\Http\Controllers\ScreenHeightController@show');
+Route::get('/deskDistance','App\Http\Controllers\DeskDistanceController@show');
+
+
+
+
+
+
