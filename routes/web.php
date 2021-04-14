@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\vakkenController;
 
-Route::get('/', function () {
+Route::post('/vakken', [vakkenController::class, 'store']);
+Route::get('/vakken', [vakkenController::class, 'index']);
+Route::post('/aanhetwerk', [aanhetwerkController::class, 'newvak']);
+
+
+Route::get('/timer', function () {
     return view('welcome');
 });
+
