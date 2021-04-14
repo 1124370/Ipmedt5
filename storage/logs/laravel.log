@@ -17013,6 +17013,7 @@ Did you mean one of these?
 #51 /home/djowe26/ipmedt5/Ipmedt5/server.php(21): require_once('/home/djowe26/i...')
 #52 {main}
 "} 
+<<<<<<< HEAD
 [2021-04-14 12:44:03] local.ERROR: Attempt to read property "aanwezig" on null {"exception":"[object] (ErrorException(code: 0): Attempt to read property \"aanwezig\" on null at /home/daan/ipmedt5-project/Ipmedt5/app/Http/Controllers/AanwezigController.php:10)
 [stacktrace]
 #0 /home/daan/ipmedt5-project/Ipmedt5/app/Http/Controllers/AanwezigController.php(10): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
