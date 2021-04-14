@@ -266,48 +266,30 @@ button:hover {
     -ms-animation: pop-in 0.5s;
 }
 
-/* The Close Button */
-.closeBtn {
-    width: 100%;
-    background-color: transparent;
-    padding: 0;
+
+.modal__h3 {
+    padding: 2rem 0;
 }
 
-.closeBtn:hover,
-.closeBtn:focus,
-.closeBtn:focus-within,
-.closeBtn:active {
-    width: 100%;
-    background-color: transparent;
-    border: none;
+.modal__text {
+    line-height: 2.2rem;
 }
 
-
-.close {
-    color: #aaa;
-    height: 5rem;
-    display: flex;
-    justify-content: flex-end;
-    float: right;
-    width: 100%;
-    font-size: 3rem;
-    font-weight: bold;
+.modal__btn {
+    margin-top: 2rem;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;  
+.modal__figure {
+    width: 55%;
+    bottom: 3rem;
+    position: absolute;
+    right: 3rem;
 }
 
-.detailProductImage {
-    padding: 2rem 0 0 0;
+.modal__title--color-red {
+    color: #a53e33;
 }
 
-.detailProductImage img {
-    border-radius: 0.5rem;
-}
 
 /*responsive classes */
 /*TabletView*/
@@ -339,6 +321,10 @@ button:hover {
         }
         .modal-content {
             width: 50%;
+        }
+
+        .modal__figure {
+            width: 45%;
         }
 
     }

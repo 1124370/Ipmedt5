@@ -44,11 +44,7 @@
         });
         chart.render();
         trimDownValues();
-        
 
-        // btn1.onclick = function() {
-        //     modal.style.display = "flex";
-        // }
         const decibelTip = @json($avgDecibel);
         console.log(decibelTip);   
         if(decibelTip > 30) {
@@ -88,13 +84,16 @@
 
         <section id="myModal" class="modal" tabindex="-1">
             <div class="modal-content" aria-labelledby="myModal">
-                <h2 class="modal__title" tabindex="0">Warning</h2>
+                <h2 class="modal__title modal__title--color-red" tabindex="0">Waarschuwing !</h2>
                 <h3 class="modal__h3"> Teveel geluid in je omgeving!</h3>
                 <p class="modal__text">- Sluit je af van de buitenwereld en gebruik een goed afsluitende koptelfoon met oortjes.</p>
                 <p class="modal__text">- Doe de ramen dicht om het geluid van buiten te verminderen.</p>
                 <p class="modal__text">- Doe de deuren dicht om het geluid van je huisgenoten te verminderen.</p>
                 <p class="modal__text">- Koop een koptelefoon of oortjes met goede ruisonderdrukking zodat jij gefocust kan werken.</p>
                 <button class="modal__btn" id="btn2"> Gelezen</button>
+                <figure class="modal__figure">
+                    <img src="images/decibel.svg" alt="decibel bird tips">
+                </figure>
             </div>
         </section>
 
