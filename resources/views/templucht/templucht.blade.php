@@ -336,7 +336,7 @@
     <div class="templucht_submitted" id="-js--submitted">
         <p>Settings changed!</p>
     </div>
-    <article class="templucht_notification" id="-js--notification">
+    <article class="templucht_notification templucht_article" id="-js--notification">
         <h1>! WARNING !</h1>
             <section class="templucht_notification_section" id="-js--notification--temp">
                 <h2 class="templucht_hide" id="-js--notification--warning--temp">Notification</h2>
@@ -386,8 +386,8 @@
             </section>
         <button class="templucht_notification_close" id="-js--notification--close" onclick="closeNotification()">Close</button>
     </article>
-    <main>
-        <article>
+    <main class="templucht_main">
+        <article class ="templucht_main_article">
             <h2>Newest Recording</h2>
             <h3>Temperature: {{$cur->temperature}} °Celsius</h3>
             <h3>Humidity: {{$cur->humidity}}%   </h3>
@@ -395,19 +395,19 @@
             <button class="templucht_button templucht_refresh" onClick="window.location.reload();">Refresh</button>
         </article>
 
-        <article>
+        <article class ="templucht_main_article">
             <h2>Prefered Values</h2>
             <h3>Temperature {{$pref->gewensttemp}} °Celsius</h3>
             <h3>Humidity: {{$pref->gewensthum}}%   </h3>
         </article>
 
-        <article>
+        <article class ="templucht_main_article">
             <h2>Average Values</h2>
             <h3 id="-js--average--temp">Temperature: {{$avgTemp}} °Celsius</h3>
             <h3 id="-js--average--hum">Humidity:    {{$avgHum}}%</h3>
         </article>
 
-        <article>
+        <article class ="templucht_main_article">
         
             <h2>Latest Recordings</h2>
             <section class="templucht_recordings">
@@ -419,7 +419,7 @@
                     
         </article>
 
-        <article>
+        <article class ="templucht_main_article">
             <h2>Settings</h2>
             <form id="-js--form" method="POST" action="/templucht" name="settingsForm">
                 @csrf

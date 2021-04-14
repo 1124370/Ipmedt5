@@ -9,7 +9,7 @@ use DB;
 class TempluchtController extends Controller
 {
     public function show(){ 
-        return view('templucht',[
+        return view('templucht.templucht',[
             'cur' => \App\Models\TemperatureHumidity::latest()->first(),
             'avgTemp' => \App\Models\TemperatureHumidity::avg('temperature'),
             'avgHum' => \App\Models\TemperatureHumidity::avg('humidity'),
