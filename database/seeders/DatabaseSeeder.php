@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
             tijdlooptSeeder::class,
             vakkenSeeder::class,
             inputtimeSeeder::class,
+            checkAanwezigTableSeeder::class,
+            noodgevalTableSeeder::class,
             
         ]);
+
     }
 }
