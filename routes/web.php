@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\database\seeders;
+use App\Http\Controllers\LedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +30,14 @@ Route::get('/stop', 'App\Http\Controllers\NoodgevalController@aanuit');
 Route::get('/templucht', '\App\Http\Controllers\TempluchtController@show');
 Route::post('/templucht', '\App\Http\Controllers\TempluchtController@store');
 
+// Joey
+Route::get('/decibel', '\App\Http\Controllers\DecibelController@show');
+Route::get('/nietstoren', 'App\Http\Controllers\LedController@aanuit');
 
 Route::get('/timer', function () {
     return view('welcome');
 });
+
 
 
 

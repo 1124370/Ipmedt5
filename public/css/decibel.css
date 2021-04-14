@@ -1,0 +1,447 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --body-bg: #7f22ea;
+    --bg-purple:#7f22ea;
+    --bg-black:#000;
+    --bg-lightblack: #0e0e0e;
+    --btn-primary: #4629d3;
+    --btn-secondary: #f5f5f5;
+    --btn-primary-hover: #295cd3;
+    --btn-secondary-hover: #eee;
+    --text-blue: #eee;
+    --text-black: #eee;
+    --text-grey: #eee;
+    --text-white: #fff;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(127,34,234,1) 46%, rgba(192,34,234,1) 100%);
+    overflow-x: hidden;
+}
+
+main {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/*general styles*/
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    text-decoration: none;
+    color: var(--text-blue);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+h3 {
+    color: var(--text-white);
+    font-family: 'Poppins-SemiBold', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+h4 {
+    font-family: 'Poppins-SemiBold', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+p {
+    font-family: 'Poppins-Regular', sans-serif;
+    color: var(--text-grey);
+    font-size: 1.5rem;
+}
+
+a {
+    font-family: 'Poppins-SemiBold', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+i {
+    color: var(--text-white);
+    font-size: 2.5rem;
+}
+
+span {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+button {
+    background: var(--btn-primary);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: var(--btn-primary-hover);
+    color: var(--text-white);
+}
+
+/* header */
+.header {
+    position: relative;
+    width: 100%;
+    height: 6rem;
+    padding: 0 1rem;
+  }
+  
+  .header__list {
+    margin: 0 1rem;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: var(--bg-lightblack);
+    border-radius: 2rem;
+    z-index: 1;
+  }
+  
+  .header__item a {
+    display: block;
+    color: var(--text-white);
+    padding: 2rem 4rem;
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
+  
+  .header__item a:hover,
+  .header__btn:hover {
+    background-color: #5a11af;
+  }
+  
+  .header__logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 2rem;
+    text-decoration: none;
+    color: var(--text-white);
+  }
+  
+  /* menu */
+  .header__menu {
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6.5rem;
+    right: 0;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 1.6rem, rgb(0 0 0 / 5%) 0 0 0.1rem, rgb(0 0 0 / 5%) 0 0.4rem 0.8rem;
+    border-radius: 0.8rem;
+  }
+  
+  /* menu icon */
+  .header__icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 2.8rem 2rem;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header__icon .navicon {
+    background: var(--text-white);
+    display: block;
+    height: 0.2rem;
+    position: relative;
+    transition: .2s ease-out;
+    width: 1.8rem;
+  }
+  
+  .header__icon .navicon:before,
+  .header__icon .navicon:after {
+    background: var(--text-white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header__icon .navicon:before {
+    top: 0.5rem;
+  }
+  
+  .header__icon .navicon:after {
+    top: -0.5rem;
+  }
+  
+  /* menu btn */
+  .header__btn {
+    display: none;
+  }
+  
+  .header__btn:checked ~ .header__menu {
+    max-height: 24rem;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6.5rem;
+    right: 0;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 1.6rem, rgb(0 0 0 / 5%) 0 0 0.1rem, rgb(0 0 0 / 5%) 0 0.4rem 0.8rem;
+    border-radius: 0.8rem;
+  }
+
+  .header__btn:checked ~ .header__menu .header__list {
+    border: 0.1rem solid var(--bg-purple);
+  }
+  
+  .header__btn:checked ~ .header__icon .navicon {
+    background: transparent;
+  }
+  
+  .header__btn:checked ~ .header__icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header__btn:checked ~ .header__icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+    .header__btn:checked ~ .header__icon:not(.steps) .navicon:before,
+   .header__btn:checked ~ .header__icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+@media (min-width: 48em) {
+    .header__item {
+        float: left;
+    }
+    .header__item a {
+        padding: 2rem 3rem;
+    }
+    .header__menu {
+        display: inline-block;
+        top: 0;
+        clear: none;
+        float: right;
+        max-height: none;
+        box-shadow: none;;
+    }
+    .header__icon {
+        display: none;
+    }
+  }
+
+  
+  /*heading content*/
+  .heading {
+    padding: 3rem;
+}
+    .heading h1 {
+        width: 26rem;
+    }
+
+  /*footer*/
+  .footer {
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+  }
+
+  .footer__text {
+      text-align: center;
+  }
+
+  /*homepage*/
+
+  .decibel {
+    padding: 3rem;
+    position: relative;
+    height: auto;
+    border-radius: 3rem 3rem 0 0;
+    background-color: var(--bg-black);
+  }
+
+  .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+  }
+
+  .charts__article {
+      height: 20rem;
+      width: 100%;
+      border-radius: 2rem;
+      background-color: #0e0e0e;
+  }
+
+  .charts__title {
+        padding: 2rem;
+        color: #eee;
+  }
+
+  .charts__value {
+      padding: 2rem;
+      color: #eee;
+  }
+  .canvasjs-chart-canvas  {
+      border-radius: 2.5rem;
+  }
+  .canvasjs-chart-credit {
+      display: none;
+  }
+
+  .nietStoren {
+      margin-top: 3rem;
+  }
+
+  .nietStoren__title {
+      margin: 1rem 0;
+  }
+
+  .nietStoren__text {
+    margin: 1.5rem 0;
+}
+
+.nietStoren__btn {
+    margin: 1rem 0;
+}
+
+/*toggle switch*/
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+    height: 3.4rem;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    border-radius: 5rem;
+    height: 2.6rem;
+    width: 2.6rem;
+    left: 0.4rem;
+    bottom: 0.4rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--btn-primary);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 0.1rem var(--btn-primary);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(2.6rem);
+    -ms-transform: translateX(2.6rem);
+    transform: translateX(2.6rem);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 3.4rem;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/*responsive classes */
+/*TabletView*/
+@media only screen and (min-width: 45rem) {
+    .header {
+        width: 95%;
+        margin: 4rem auto;
+    };
+    .heading {
+        height: 20rem;
+    }
+    .heading--height {
+        height: 27rem;
+    }
+    .decibel {
+        transform: translateX(-50%);
+        margin-left: 50%;
+        width: 100vw;
+    }
+    
+    @supports not (display: grid) {
+
+    }
+    @supports (display: grid) {
+
+    }
+
+    @media only screen and (min-width: 64rem) {
+        .heading {
+            margin: 12rem 0;
+            height: 12rem;
+        }
+        .heading--height {
+            height: 23rem;
+        }
+
+    @supports (display: grid) {
+
+    }
+    @supports not (display: grid) {
+
+    }
+}
+}
