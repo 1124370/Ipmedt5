@@ -14,6 +14,7 @@ use App\Http\Controllers\LedController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', '\App\Http\Controllers\TempluchtController@show');
 
 //Daniek
 use App\Http\Controllers\vakkenController;
@@ -41,9 +42,6 @@ Route::get('/screenHeight','App\Http\Controllers\ScreenHeightController@show');
 Route::get('/deskDistance','App\Http\Controllers\DeskDistanceController@show');
 
 
-Route::get('/timer', function () {
-    return view('welcome');
-});
 
 
 

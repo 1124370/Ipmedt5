@@ -1,4 +1,48 @@
 @extends('default')
+@section('css')
+<link rel="stylesheet" href="/css/decibel.css">
+@endsection
+@section('js')
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+        window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "dark1",
+            backgroundColor: "#0e0e0e",
+            lineColor: "red",
+            title: {
+                fontSize: 18,
+                padding: 3,
+                fontFamily: "OpenSans-SemiBold",
+                text: "Decibel"
+            },
+            axisY: {
+                title: "Decibel waardes",
+            },
+            data: [{
+                type: "splineArea",
+                lineColor: "#7f22ea",
+                color: "rgb(155,34,234,0.6)",
+                indexLabelFontSize: 16,
+                dataPoints: [
+                    {y: {{$decibel[0]->waardes}}, label:" " },
+                    {y: {{$decibel[1]->waardes}}, label:" " },
+                    {y: {{$decibel[2]->waardes}}, label:" " },
+                    {y: {{$decibel[3]->waardes}}, label:" " },
+                    {y: {{$decibel[4]->waardes}}, label:" " },
+                    {y: {{$decibel[5]->waardes}}, label:" " },
+                    {y: {{$decibel[6]->waardes}}, label:" " },
+                    {y: {{$decibel[7]->waardes}}, label:" " },
+                    {y: {{$decibel[8]->waardes}}, label:" " },
+                    {y: {{$decibel[9]->waardes}}, label:" " }
+                ]
+            }]
+        });
+        chart.render();
+        }
+    </script>
+@endsection
 @section('content')
 
     <main>
@@ -27,7 +71,7 @@
             </article>
             
             <article class="charts__article charts__article--border" id="chartContainer">
-                <h3> hoi</h3>
+                
             </article>
         </section>
         
@@ -47,42 +91,5 @@
     </main>
 @endsection
 
-    <script>
-        window.onload = function () {
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            theme: "dark1",
-            backgroundColor: "#0e0e0e",
-            lineColor: "red",
-            title: {
-                fontSize: 18,
-                padding: 3,
-                fontFamily: "OpenSans-SemiBold",
-                text: "Decibel"
-            },
-            axisY: {
-                title: "Decibel waardes",
-            },
-            data: [{
-                type: "splineArea",
-                lineColor: "#7f22ea",
-                color: "rgb(155,34,234,0.6)",
-                indexLabelFontSize: 16,
-                dataPoints: [
-                    {y: {{$decibel[0]->waardes}} },
-                    {y: {{$decibel[1]->waardes}} },
-                    {y: {{$decibel[2]->waardes}} },
-                    {y: {{$decibel[3]->waardes}} },
-                    {y: {{$decibel[4]->waardes}} },
-                    {y: {{$decibel[5]->waardes}} },
-                    {y: {{$decibel[6]->waardes}} },
-                    {y: {{$decibel[7]->waardes}} },
-                    {y: {{$decibel[8]->waardes}} },
-                    {y: {{$decibel[9]->waardes}} }
-                ]
-            }]
-        });
-        chart.render();
-        }
-    </script>
+
 

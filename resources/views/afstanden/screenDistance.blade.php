@@ -1,4 +1,79 @@
-@extends('afstanden.default')
+@extends('default')
+@section('css')
+<link rel="stylesheet" type="text/css" href="/css/schermen.css"/>   
+@endsection
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    let app = @json($afstanden);
+    let gemiddelde = @json($gemiddelde);
+    console.log(gemiddelde);
+    if (gemiddelde < 40 || gemiddelde > 60) {
+        alert("Let op! Je huidige afstand is onvoldoende. Pas je houding aan.");
+    }
+    let yValues = [
+        app[0].Afstand,
+        app[1].Afstand,
+        app[2].Afstand,
+        app[3].Afstand,
+        app[4].Afstand,
+        app[5].Afstand,
+        app[6].Afstand,
+        app[7].Afstand,
+        app[8].Afstand,
+    ];
+    let xValues = [
+        app[0].created_at.substr(11, 8),
+        app[1].created_at.substr(11, 8),
+        app[2].created_at.substr(11, 8),
+        app[3].created_at.substr(11, 8),
+        app[4].created_at.substr(11, 8),
+        app[5].created_at.substr(11, 8),
+        app[6].created_at.substr(11, 8),
+        app[7].created_at.substr(11, 8),
+        app[8].created_at.substr(11, 8),
+    ];
+
+    new Chart("screenHeight", {
+        type: "line",
+        data: {
+            labels: xValues,
+            lineColor: "#7f22ea",
+            datasets: [{
+                backgroundColor: 'rgb(255, 99, 132)', //chart kleur
+                borderColor: "rgba(255, 255, 255)", //lijn kleur
+
+                data: yValues,
+                height: 50,
+
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            legend: {
+                labels: {
+                    fontColor: 'rgba(255, 255, 255)'
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        fontColor: 'rgba(255, 255, 255)'
+                    },
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'rgba(255, 255, 255)'
+                    },
+                }]
+            }
+
+        },
+
+    });
+    screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
+</script>
+@endsection
 @section('content')
 
 <main>
@@ -41,76 +116,4 @@
          </section>
       </section>
 </main>
-
-
-
-<script>
-   let app = @json($afstanden);
-   let gemiddelde = @json($gemiddelde);
-   console.log(gemiddelde);
-   if (gemiddelde < 40 || gemiddelde > 60) {
-      alert("Let op! Je huidige afstand is onvoldoende. Pas je houding aan.");
-   }
-   let yValues = [
-      app[0].Afstand,
-      app[1].Afstand,
-      app[2].Afstand,
-      app[3].Afstand,
-      app[4].Afstand,
-      app[5].Afstand,
-      app[6].Afstand,
-      app[7].Afstand,
-      app[8].Afstand,
-   ];
-   let xValues = [
-      app[0].created_at.substr(11, 8),
-      app[1].created_at.substr(11, 8),
-      app[2].created_at.substr(11, 8),
-      app[3].created_at.substr(11, 8),
-      app[4].created_at.substr(11, 8),
-      app[5].created_at.substr(11, 8),
-      app[6].created_at.substr(11, 8),
-      app[7].created_at.substr(11, 8),
-      app[8].created_at.substr(11, 8),
-   ];
-
-   new Chart("screenHeight", {
-      type: "line",
-      data: {
-         labels: xValues,
-         lineColor: "#7f22ea",
-         datasets: [{
-            backgroundColor: 'rgb(255, 99, 132)', //chart kleur
-            borderColor: "rgba(255, 255, 255)", //lijn kleur
-
-            data: yValues,
-            height: 50,
-
-         }]
-      },
-      options: {
-         maintainAspectRatio: false,
-         legend: {
-            labels: {
-               fontColor: 'rgba(255, 255, 255)'
-            }
-         },
-         scales: {
-            yAxes: [{
-               ticks: {
-                  fontColor: 'rgba(255, 255, 255)'
-               },
-            }],
-            xAxes: [{
-               ticks: {
-                  fontColor: 'rgba(255, 255, 255)'
-               },
-            }]
-         }
-
-      },
-
-   });
-   screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
-</script>
 @endsection

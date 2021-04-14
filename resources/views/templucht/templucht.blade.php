@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="300">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <title>Templucht - Daniel</title>
-    <link rel="stylesheet" href="/css/templucht.css">
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-    <script>
+@extends('default')
+@section('css')
+<link rel="stylesheet" href="/css/templucht.css">
+@endsection
+@section('js')
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
         var menuOpen = false;
         var valueMessage;
         window.onload = function () {     
@@ -312,27 +304,18 @@
         document.getElementById("-js--average--hum").innerHTML = "Humidity: " +  hum + "%"
         }
     </script>
-    
+@endsection
+@section('content')
 
-</head>
-<body class="templucht">
-    <header class="templucht_header">
-        <h1 class="templucht_header_title">Templucht</h1>
-        
-        <button class="templucht_header_button" id="-js--menu--button" onclick="openMenu()">&#9776;</button>
-        <ul class="templucht_header_menu" id="-js--menu">
-            <li class="templucht_header_menu_item templucht_header_menu_item-first"><a href="/templucht" class="active">Templucht</a></li>
-            <li class="templucht_header_menu_item"><a href="/templucht">Telefoon</a></li>
-            <li class="templucht_header_menu_item"><a href="/templucht">Geluid</a></li>
-            <li class="templucht_header_menu_item"><a href="/templucht">Afstand</a></li>
-            <li class="templucht_header_menu_item templucht_header_menu_item-last"><a href="/templucht">Timer</a></li>
-        </ul>
-        
-        
-    </header>
-    
-    
+<main>
+    <section class="heading">
+        <article class="heading__article">
+            <h1 class="heading__title">Dashboard</h1>
+            <h3 class="heading__info">Templucht</h3>
+        </article>
+    </section> 
 
+<section class="templucht">
     <div class="templucht_submitted" id="-js--submitted">
         <p>Settings changed!</p>
     </div>
@@ -386,7 +369,8 @@
             </section>
         <button class="templucht_notification_close" id="-js--notification--close" onclick="closeNotification()">Close</button>
     </article>
-    <main class="templucht_main">
+
+    <section class="templucht_main">
         <article class ="templucht_main_article">
             <h2>Newest Recording</h2>
             <h3>Temperature: {{$cur->temperature}} °Celsius</h3>
@@ -439,11 +423,9 @@
             </form>
             
         </article>
+    </section>
+    </section>
     </main>
     
-
     
-    
-</body>
-    
-</html>
+@endsection

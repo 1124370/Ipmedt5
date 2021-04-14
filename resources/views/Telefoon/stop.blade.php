@@ -1,11 +1,16 @@
-@extends('Telefoon.default')
-
-@section('titel')
-    Noodgeval
+@extends('default')
+@section('css')
+<link rel="stylesheet" href="css/telefoon.css">
 @endsection
 
 @section('content')
-    <main class="main">
+<main class="main main--telefoon" >
+        <section class="heading">
+            <article class="heading__article">
+                <h1 class="heading__title">Dashboard</h1>
+                <h3 class="heading__info">Decibel</h3>
+            </article>
+        </section> 
         <section class="main__titleWrapper">
             <h1 class="main__title">Stop</h1>
         </section>
@@ -21,5 +26,5 @@
                 </section>             
             </article> 
         </section>
-    </main>
+</main>
 @endsection
