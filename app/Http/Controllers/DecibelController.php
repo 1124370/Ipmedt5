@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class DecibelController extends Controller
 {
     public function show(){ 
-        return view('index',[
+        return view('decibel.decibel',[
             'cur' => \App\Models\Decibel::latest()->first(),
             'decibel' => \App\Models\Decibel::all(),
             'minDecibel' => \App\Models\Decibel::min('waardes'),
