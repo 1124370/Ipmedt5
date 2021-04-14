@@ -17980,3 +17980,20 @@ Did you mean one of these?
 #54 /home/djowe26/ipmedt5/Ipmedt5/server.php(21): require_once('/home/djowe26/i...')
 #55 {main}
 
+[2021-04-14 22:09:46] local.ERROR: include(/home/metspek/school/Ipmedt5/vendor/composer/../consoletvs/charts/src/ChartsServiceProvider.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(/home/metspek/school/Ipmedt5/vendor/composer/../consoletvs/charts/src/ChartsServiceProvider.php): failed to open stream: No such file or directory at /home/metspek/school/Ipmedt5/vendor/composer/ClassLoader.php:478)
+[stacktrace]
+#0 /home/metspek/school/Ipmedt5/vendor/composer/ClassLoader.php(478): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /home/metspek/school/Ipmedt5/vendor/composer/ClassLoader.php(478): include()
+#2 /home/metspek/school/Ipmedt5/vendor/composer/ClassLoader.php(346): Composer\\Autoload\\includeFile()
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass()
+#4 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(735): spl_autoload_call()
+#5 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(669): Illuminate\\Foundation\\Application->resolveProvider()
+#6 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#7 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(649): Illuminate\\Foundation\\ProviderRepository->load()
+#8 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(237): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#10 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith()
+#11 /home/metspek/school/Ipmedt5/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 /home/metspek/school/Ipmedt5/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#13 {main}
+"} 
