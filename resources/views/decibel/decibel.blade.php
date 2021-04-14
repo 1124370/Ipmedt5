@@ -49,19 +49,24 @@
         // btn1.onclick = function() {
         //     modal.style.display = "flex";
         // }
-
-        function modal(){
-            cur = String({{$cur}})
-            if(cur > 30) {
-                modal.style.display = "flex"; 
-            } else {
-                modal.style.display = "none"; 
-            }
+        const decibelTip = @json($avgDecibel);
+        console.log(decibelTip);   
+        if(decibelTip > 30) {
+            modal.style.display = "flex"; 
+        } else {
+            modal.style.display = "none"; 
         }
+        
 
         btn2.onclick = function() {
             modal.style.display = "none";
         }
+
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
         function trimDownValues(){
             avgdecibel = String({{$avgDecibel}})
@@ -83,14 +88,13 @@
 
         <section id="myModal" class="modal" tabindex="-1">
             <div class="modal-content" aria-labelledby="myModal">
-                    <h2 id="title--js" tabindex="0">Warning</h2>
-                    <h3>Teveel geluid in je omgeving</h3>
-                    <h4>Tips om </h5>
-                    <p>Tip 1</p>
-                    <p>Tip 2</p>
-                    <p>Tip 3</p>
-                    <p>Tip 4</p>
-                    <button id="btn2"> Gelezen</button>
+                <h2 class="modal__title" tabindex="0">Warning</h2>
+                <h3 class="modal__h3"> Teveel geluid in je omgeving!</h3>
+                <p class="modal__text">- Sluit je af van de buitenwereld en gebruik een goed afsluitende koptelfoon met oortjes.</p>
+                <p class="modal__text">- Doe de ramen dicht om het geluid van buiten te verminderen.</p>
+                <p class="modal__text">- Doe de deuren dicht om het geluid van je huisgenoten te verminderen.</p>
+                <p class="modal__text">- Koop een koptelefoon of oortjes met goede ruisonderdrukking zodat jij gefocust kan werken.</p>
+                <button class="modal__btn" id="btn2"> Gelezen</button>
             </div>
         </section>
 

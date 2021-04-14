@@ -260,7 +260,7 @@ button:hover {
     background-color: var(--bg-lightblack);
     padding: 2rem;
     border: 0.01rem solid var(--bg-purple);
-    width: 49%;
+    width: 80%;
     -webkit-animation: pop-in 0.5s;
     -moz-animation: pop-in 0.5s;
     -ms-animation: pop-in 0.5s;
@@ -328,7 +328,7 @@ button:hover {
         width: 100%;
     }
     
-
+/*desktopView*/
     @media only screen and (min-width: 64rem) {
         .heading {
             margin: 12rem 0;
@@ -336,6 +336,9 @@ button:hover {
         }
         .heading--height {
             height: 23rem;
+        }
+        .modal-content {
+            width: 50%;
         }
 
     }
