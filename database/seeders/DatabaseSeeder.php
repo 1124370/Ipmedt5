@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             noodgevalTableSeeder::class,
             TempluchtTableSeeder::class,
             UserPreferencesTableSeeder::class,
+            DecibelTableSeeder::class,
+            NietStorenTableSeeder::class,
         ]);
     }
 }
