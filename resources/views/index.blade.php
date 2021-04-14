@@ -18,12 +18,12 @@
 
             <article class="charts__article">
                 <h4 class="charts__value">Max Decibel</h4>
-                <h3 class="charts__value">{{$minDecibel}}dB</h3>
+                <h3 class="charts__value">{{$maxDecibel}}dB</h3>
             </article>
 
             <article class="charts__article">
                 <h4 class="charts__value">Gemiddelde Decibel</h4>
-                <h3 class="charts__value">{{$minDecibel}}dB</h3>
+                <h3 class="charts__value">{{$avgDecibel}}dB</h3>
             </article>
             
             <article class="charts__article charts__article--border" id="chartContainer">
