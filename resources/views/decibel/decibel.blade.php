@@ -6,7 +6,10 @@
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script>
         window.onload = function () {
-        var chart = new CanvasJS.Chart("chartContainer", {
+        const modal = document.getElementById("myModal");
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             theme: "dark1",
             backgroundColor: "#0e0e0e",
@@ -40,8 +43,33 @@
             }]
         });
         chart.render();
+        trimDownValues();
+        
+
+        // btn1.onclick = function() {
+        //     modal.style.display = "flex";
+        // }
+
+        function modal(){
+            cur = String({{$cur}})
+            if(cur > 30) {
+                modal.style.display = "flex"; 
+            } else {
+                modal.style.display = "none"; 
+            }
         }
-    </script>
+
+        btn2.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        function trimDownValues(){
+            avgdecibel = String({{$avgDecibel}})
+            document.getElementById("js--avgdecibel").innerHTML = avgdecibel + " dB"
+        }
+    }    
+   
+</script>
 @endsection
 @section('content')
 
@@ -52,6 +80,19 @@
                 <h3 class="heading__info">Decibel</h3>
             </article>
         </section> 
+
+        <section id="myModal" class="modal" tabindex="-1">
+            <div class="modal-content" aria-labelledby="myModal">
+                    <h2 id="title--js" tabindex="0">Warning</h2>
+                    <h3>Teveel geluid in je omgeving</h3>
+                    <h4>Tips om </h5>
+                    <p>Tip 1</p>
+                    <p>Tip 2</p>
+                    <p>Tip 3</p>
+                    <p>Tip 4</p>
+                    <button id="btn2"> Gelezen</button>
+            </div>
+        </section>
 
         <section class="decibel">
         <section class="charts">
@@ -67,7 +108,7 @@
 
             <article class="charts__article">
                 <h4 class="charts__value">Gemiddelde Decibel</h4>
-                <h3 class="charts__value">{{$avgDecibel}}dB</h3>
+                <h3 class="charts__value" id="js--avgdecibel">{{$avgDecibel}}</h3>
             </article>
             
             <article class="charts__article charts__article--border" id="chartContainer">
@@ -78,18 +119,18 @@
         <section class="nietStoren">
                 <article class="nietStoren__article">
                     <h3 class="nietStoren__title">Niet storen modus</h3>
-                    <p class="nietStoren__text">storen neef</p>
-                <!-- <button class="nietStoren__btn" onclick="window.location.href='/nietstoren'">Niet storen modus</button> -->
+                    <p class="nietStoren__text">Slide de knop uit zodat je kinderen een melding krijgen dat ze je weer mogen storen.</p>
+                
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" checked>
                     <span class="slider" onclick="window.location.href='/nietstoren'"></span>
                 </label>
             </article>
         </section>
 
+
         </section>
     </main>
+
 @endsection
-
-
 
