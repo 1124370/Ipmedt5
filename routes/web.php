@@ -34,11 +34,8 @@ Route::post('/templucht', '\App\Http\Controllers\TempluchtController@store');
 Route::get('/decibel', '\App\Http\Controllers\DecibelController@show');
 Route::get('/nietstoren', 'App\Http\Controllers\LedController@aanuit');
 
-
-
-
-
 //Victor afstanden
+use App\Http\Controllers\ScreenDistanceController;
 Route::get('/screenDistance',[ScreenDistanceController::class, 'show']);
 Route::get('/screenHeight','App\Http\Controllers\ScreenHeightController@show');
 Route::get('/deskDistance','App\Http\Controllers\DeskDistanceController@show');
