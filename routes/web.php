@@ -19,3 +19,8 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/screenDistance',[ScreenDistanceController::class, 'show']);
+Route::get('/screenHeight','App\Http\Controllers\ScreenHeightController@show');
+Route::get('/deskDistance','App\Http\Controllers\DeskDistanceController@show');
