@@ -21,7 +21,7 @@
             },
             axisX:{
                 
-                title: "Tijdlijn"
+                title: "<- Oud   Tijdlijn   Nieuw ->"
             },
             axisY:{
                 title: "Temperatuur (°C)",
@@ -54,7 +54,7 @@
                 text: "Laatste luchtvochtigheid waarden"
             },
             axisX:{
-                title: "Tijdlijn"
+                title: "<- Oud   Tijdlijn   Nieuw   ->"
             },
             axisY:{
                 title: "Luchtvochtigheid (%)",
