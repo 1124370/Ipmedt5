@@ -16,6 +16,10 @@ function createproduct() {
     popup.classList.toggle("show");
   }
  
+  function toggleModal() { 
+    var popup = document.getElementById("modalVak"); 
+    popup.classList.toggle("show"); 
+}
 // refresh()
 
 // function sleep(ms) {
