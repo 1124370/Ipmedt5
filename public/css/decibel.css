@@ -231,6 +231,66 @@ button:hover {
     border-radius: 50%;
   }
 
+
+/* Modal Content/Box */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+     -webkit-animation: pop-in 0.5s;
+    -moz-animation: pop-in 0.5s;
+    -ms-animation: pop-in 0.5s;
+}
+
+.modal-content {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    height: 63rem;
+    border-radius: 2.5rem;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-lightblack);
+    padding: 2rem;
+    border: 0.01rem solid var(--bg-purple);
+    width: 80%;
+    -webkit-animation: pop-in 0.5s;
+    -moz-animation: pop-in 0.5s;
+    -ms-animation: pop-in 0.5s;
+}
+
+
+.modal__h3 {
+    padding: 2rem 0;
+}
+
+.modal__text {
+    line-height: 2.2rem;
+}
+
+.modal__btn {
+    margin-top: 2rem;
+}
+
+.modal__figure {
+    width: 55%;
+    bottom: 3rem;
+    position: absolute;
+    right: 3rem;
+}
+
+.modal__title--color-red {
+    color: #a53e33;
+}
+
+
 /*responsive classes */
 /*TabletView*/
 @media only screen and (min-width: 45rem) {
@@ -250,7 +310,7 @@ button:hover {
         width: 100%;
     }
     
-
+/*desktopView*/
     @media only screen and (min-width: 64rem) {
         .heading {
             margin: 12rem 0;
@@ -258,6 +318,13 @@ button:hover {
         }
         .heading--height {
             height: 23rem;
+        }
+        .modal-content {
+            width: 50%;
+        }
+
+        .modal__figure {
+            width: 45%;
         }
 
     }
