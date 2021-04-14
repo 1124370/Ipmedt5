@@ -1,6 +1,6 @@
 @extends('default')
 @section('css')
-<link rel="stylesheet" type="text/css" href="/css/schermen.css"/>   
+<link rel="stylesheet" type="text/css" href="/css/schermen.css" />
 @endsection
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -8,8 +8,9 @@
     let app = @json($afstanden);
     let gemiddelde = @json($gemiddelde);
     console.log(gemiddelde);
-    if (gemiddelde < 40 || gemiddelde > 60) {
-        alert("Let op! Je huidige afstand is onvoldoende. Pas je houding aan.");
+    if (gemiddelde < 70) {
+        modal.style.display = "flex";
+        text.innerHTML = "Let op, je bureau zit te laag. Schuif hem iets omhoog voor een betere werkhouding. Zorg ervoor dat je armleuning op gelijke hoogte zitten van je bureau";
     }
     let yValues = [
         app[0].Afstand,
@@ -77,12 +78,23 @@
 @section('content')
 
 <main>
-<section class="heading">
-      <article class="heading__article">
-         <h1 class="heading__title">Dashboard</h1>
-         <h3 class="heading__info">Scherm afstand</h3>
-      </article>
-   </section>
+    <section class="heading">
+        <article class="heading__article">
+            <h1 class="heading__title">Dashboard</h1>
+            <h3 class="heading__info">Scherm afstand</h3>
+        </article>
+    </section>
+    <section id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p class="modal__text" id="modal__text">hhhhhhhhh</p>
+            <button class="modal__button" id="myBtn">Sluit</button>
+        </div>
+
+
+    </section>
     <section class="flex-container">
 
         <section class="u-grid-table">
@@ -108,12 +120,13 @@
                     </tr>
                     @endforeach
                 </table>
-                <p>Als vuistregel moet je er een uitgestrekte arm tussen jou en je beeldscherm zitten.</p>
-            </section>
+                <section class="button__wrapper">
+                    <button class="table__button"> <a class="button__text" href="/screenHeight">Scherm hoogte</a></button>
+                    <button class="table__button"> <a class="button__text" href="/screenDistance">Scherm afstand</a></button>
+                </section>
             </section>
         </section>
     </section>
+    </section>
 </main>
 @endsection
-
-
