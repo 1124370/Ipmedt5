@@ -12,7 +12,7 @@
         // Get the button that opens the modal
         const btn = document.getElementById("myBtn");
         const text = document.getElementById("modal__text");
-        
+
         let keuze = document.getElementById("keuze").value;
         // Get the <span> element that closes the modal
         const span = document.getElementsByClassName("close")[0];
@@ -88,7 +88,7 @@
         });
         screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
         console.log(keuze);
-        
+
 
 
 
@@ -117,20 +117,17 @@
         if (keuze == "small") {
             antwoord.innerHTML = "";
             antwoord.innerHTML = "Voor deze scherm grootte moet je een afstand hebben van circa 40 centimeter";
-        }
-        else if(keuze == "medium"){
+        } else if (keuze == "medium") {
             antwoord.innerHTML = "";
             antwoord.innerHTML = "Voor deze scherm grootte moet je een afstand hebben van circa 55 centimeter";
-        }
-        else if(keuze == "large"){
+        } else if (keuze == "large") {
             antwoord.innerHTML = "";
             antwoord.innerHTML = "Voor deze scherm grootte moet je een afstand hebben van circa 65 centimeter";
-        }
-        else if(keuze == "extralarge"){
+        } else if (keuze == "extralarge") {
             antwoord.innerHTML = "";
             antwoord.innerHTML = "Voor deze scherm grootte moet je een afstand hebben van circa 70 centimeter";
         }
-        
+
     }
 </script>
 @endsection
@@ -173,7 +170,7 @@
                 <article class="scherm__info">
                     <section class="scherm__info__group">
                         <p class="scherm__info__group__text">Als vuistregel moet je altijd een armlengte afstand hebben tussen jou en je scherm</p>
-                        <p id="scherm--antwoord">  </p>
+                        <p id="scherm--antwoord"> </p>
                     </section>
                 </article>
             </section>
