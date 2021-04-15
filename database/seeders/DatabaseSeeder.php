@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
             UserPreferencesTableSeeder::class,
             DecibelTableSeeder::class,
             NietStorenTableSeeder::class,
+            ScreenDistanceTableSeeder::class,
+            ScreenHeightDistanceTableSeeder::class,
+            DeskDistanceTableSeeder::class,
+            
         ]);
     }
 }
