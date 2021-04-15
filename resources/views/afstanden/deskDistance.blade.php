@@ -5,74 +5,109 @@
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script>
-    let app = @json($afstanden);
-    let gemiddelde = @json($gemiddelde);
-    console.log(gemiddelde);
-    if (gemiddelde < 70) {
-        modal.style.display = "flex";
-        text.innerHTML = "Let op, je bureau zit te laag. Schuif hem iets omhoog voor een betere werkhouding. Zorg ervoor dat je armleuning op gelijke hoogte zitten van je bureau";
-    }
-    let yValues = [
-        app[0].Afstand,
-        app[1].Afstand,
-        app[2].Afstand,
-        app[3].Afstand,
-        app[4].Afstand,
-        app[5].Afstand,
-        app[6].Afstand,
-        app[7].Afstand,
-        app[8].Afstand,
-    ];
-    let xValues = [
-        app[0].created_at.substr(11, 8),
-        app[1].created_at.substr(11, 8),
-        app[2].created_at.substr(11, 8),
-        app[3].created_at.substr(11, 8),
-        app[4].created_at.substr(11, 8),
-        app[5].created_at.substr(11, 8),
-        app[6].created_at.substr(11, 8),
-        app[7].created_at.substr(11, 8),
-        app[8].created_at.substr(11, 8),
-    ];
+    window.onload = function() {
+        // Get the modal
+        const modal = document.getElementById("myModal");
 
-    new Chart("screenHeight", {
-        type: "line",
-        data: {
-            labels: xValues,
-            lineColor: "#7f22ea",
-            datasets: [{
-                backgroundColor: 'rgb(255, 99, 132)', //chart kleur
-                borderColor: "rgba(255, 255, 255)", //lijn kleur
+        // Get the button that opens the modal
+        const btn = document.getElementById("myBtn");
+        const text = document.getElementById("modal__text");
 
-                data: yValues,
-                height: 50,
+        
+        // Get the <span> element that closes the modal
+        const span = document.getElementsByClassName("close")[0];
+        let app = @json($afstanden);
+        let gemiddelde = @json($gemiddelde);
 
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            legend: {
-                labels: {
-                    fontColor: 'rgba(255, 255, 255)'
-                }
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        fontColor: 'rgba(255, 255, 255)'
-                    },
-                }],
-                xAxes: [{
-                    ticks: {
-                        fontColor: 'rgba(255, 255, 255)'
-                    },
+        console.log(gemiddelde);
+        if (gemiddelde < 70) {
+            modal.style.display = "flex";
+            text.innerHTML = "Let op, je bureau zit te laag. Schuif hem iets omhoog voor een betere werkhouding. Zorg ervoor dat je armleuning op gelijke hoogte zitten van je bureau";
+        }
+        let yValues = [
+            app[0].Afstand,
+            app[1].Afstand,
+            app[2].Afstand,
+            app[3].Afstand,
+            app[4].Afstand,
+            app[5].Afstand,
+            app[6].Afstand,
+            app[7].Afstand,
+            app[8].Afstand,
+        ];
+        let xValues = [
+            app[0].created_at.substr(11, 8),
+            app[1].created_at.substr(11, 8),
+            app[2].created_at.substr(11, 8),
+            app[3].created_at.substr(11, 8),
+            app[4].created_at.substr(11, 8),
+            app[5].created_at.substr(11, 8),
+            app[6].created_at.substr(11, 8),
+            app[7].created_at.substr(11, 8),
+            app[8].created_at.substr(11, 8),
+        ];
+
+        new Chart("screenHeight", {
+            type: "line",
+            data: {
+                labels: xValues,
+                lineColor: "#7f22ea",
+                datasets: [{
+                    backgroundColor: 'rgb(255, 99, 132)', //chart kleur
+                    borderColor: "rgba(255, 255, 255)", //lijn kleur
+
+                    data: yValues,
+                    height: 50,
+
                 }]
-            }
+            },
+            options: {
+                maintainAspectRatio: false,
+                legend: {
+                    labels: {
+                        fontColor: 'rgba(255, 255, 255)'
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'rgba(255, 255, 255)'
+                        },
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: 'rgba(255, 255, 255)'
+                        },
+                    }]
+                }
 
-        },
+            },
 
-    });
-    screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
+        });
+        screenHeight.style.backgroundColor = 'rgba(82, 94, 112)';
+        
+
+
+
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+    }
+    
 </script>
 @endsection
 @section('content')
