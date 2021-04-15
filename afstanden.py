@@ -6,10 +6,10 @@ import os
 
 
 mydb= mysql.connector.connect(
-    host ="localhost",
-    user="pi",
-    passwd="raspberry",
-    database="communication"
+    host ="web0094.zxcs.nl",
+    user="schoolproject_laravel",
+    passwd="kvLXsjsPS",
+    database="schoolproject_laravel"
 )
 
 port = serial.Serial("/dev/ttyUSB0", baudrate=115200, timeout=3.0)
