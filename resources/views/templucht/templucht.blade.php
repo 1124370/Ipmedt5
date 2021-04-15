@@ -5,13 +5,16 @@
 @section('js')
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script>
+        //Wat variabelen
         var menuOpen = false;
         var valueMessage;
        
-        
+        //Wanneer de pagina laadt
         window.onload = function () {     
         loadValues();  
         inputAge();
+
+        //Maakt de temperatuur grafiek aan
         var chart1 = new CanvasJS.Chart("chartContainerTemp", {
             animationEnabled: true,
             theme: "light2",
@@ -46,6 +49,8 @@
                 ]
             }]
         });
+
+        //Maakt de luchtvochtigheid grafiek aan
         var chart2 = new CanvasJS.Chart("chartContainerHum", {
             animationEnabled: true,
             theme: "light2",
@@ -79,27 +84,51 @@
                 ]
             }]
         });
+
+        //Laat beide grafieken zien
         chart1.render();
         chart2.render();
        
-        console.log(localStorage.getItem("submit"))
-        
+       
+        //Kijkt naar de verschillen van de gewenste temperatuur met de gemeten waarden 
         var tempdif = {{$cur->temperature}} - {{$pref->gewensttemp}} 
         const tempMargin = [-1, 1, -2, -3, 2, 3]
         var tempResult = checkdif(tempdif, tempMargin);
+
+        //Kijkt naar de verschillen van de gewenste luchtvochtigheid met de gemeten waarden 
         var humdif = {{$cur->humidity}} - {{$pref->gewensthum}}
         const humMargin = [-4, 4, -5, -10, 5, 10]
         var humResult = checkdif(humdif, humMargin);
+
+        //Gaat kijken of de verschillende bepaalde waarden heeft overschreden
         showNote(tempResult, humResult);
         checkSubmit();
+
+        //Verandert real time de html van de ingevoerde leeftijd
         var age = document.getElementById("-js--preference--age--input").value;
         document.getElementById("-js--preference--age").innerHTML = "Uw leeftijd: " + age;
         trimDownValues();
       
      }
 
-    
+     //Kijkt naar welke schaal het verschil is van de temperatuur/luchtvochtigheid waarden en gemeten waarden 
+     function checkdif(thing, margin){
+        if(thing >= margin[0] && thing <= margin[1]){
+            valueMessage = "good";
+        } else if(thing <= margin[2] && thing > margin[3]){
+            valueMessage = "low";
+        } else if(thing >= margin[4] && thing < margin[5]){
+            valueMessage = "high";
+        } else if(thing <= margin[3]){
+            valueMessage = "tooLow";
+        } else if(thing >= margin[5]){
+            valueMessage = "tooHigh"; 
+        } 
+        return valueMessage;
+     }
 
+    
+     //Zet de ingevoerde waardes in de settings als standaard als de pagina herlaad
      function loadValues(){
         document.getElementById("-js--preference--age--input").value = "{{ $pref->age }}"
         document.getElementById("-js--preference--temp--input").value = "{{ $pref->gewensttemp }}"
@@ -111,6 +140,8 @@
      }
 
 
+     //Als je de settings submit, kijk of de waardes tussen de min-max zitten 
+     //schrijf true naar localstorage dat settings aangepast zijn
      function submitForm(){
         var age = document.forms["settingsForm"]["age"].value;
         var temp = document.forms["settingsForm"]["gewensttemp"].value;
@@ -124,6 +155,8 @@
         localStorage.setItem("submit", "true");
      }
 
+     //Als pagina herladen is, kijken in localstorage of de settings aangepast zijn
+     //Laat melding zien dat settings zijn aangepast
      function checkSubmit(){
         if(localStorage.getItem("submit") == "true"){
             document.getElementById("-js--submitted").style.height  = "7rem";
@@ -132,6 +165,7 @@
         }
      }
 
+     //Kijkt of de temperatuur/humidity te hoog/hoog/laag/te laag is
      function showNote(noteTemp, noteHum){
         var tempMessage;
         var humMessage;
@@ -182,6 +216,7 @@
         console.log(humMessage)
      }
 
+     //Geeft de specifieke waarde mee aan de warning en wat die moet laten zien
      function giveWarning(message, object, value){
         openNotification();
         document.getElementById("-js--notification").style.display = "block";
@@ -234,6 +269,7 @@
 
      }
 
+     //Geeft aanbevolen waarden op basis van de ingevoerde leeftijd
      function inputAge(){
         var recommended
         var recommend = document.getElementById("-js--preference--recommended")
@@ -249,26 +285,14 @@
         recommend.innerHTML = recommended;
      }
 
+     //Laat de meegegeven tips zien
      function setDisplay(id){ 
          console.log(id)
         document.getElementById(id).style.display = "block";
      }
 
-     function checkdif(thing, margin){
 
-        if(thing >= margin[0] && thing <= margin[1]){
-            valueMessage = "good";
-        } else if(thing <= margin[2] && thing > margin[3]){
-            valueMessage = "low";
-        } else if(thing >= margin[4] && thing < margin[5]){
-            valueMessage = "high";
-        } else if(thing <= margin[3]){
-            valueMessage = "tooLow";
-        } else if(thing >= margin[5]){
-            valueMessage = "tooHigh"; 
-        } 
-        return valueMessage;
-     }
+     //opent de warning notificatie
      function openNotification(){
         console.log(document.getElementById("-js--notification").scrollHeight )
         document.getElementById("-js--notification--backdrop").style.display = "block";
@@ -276,6 +300,7 @@
         setTimeout(function(){ document.getElementById("-js--notification--close").style.display= "block"}, 300);
      }
 
+     //sluit de warning notificatie
      function closeNotification(){
         document.getElementById("-js--notification--close").style.display= "none";
         document.getElementById("-js--notification").style.height = "0px";
@@ -283,6 +308,7 @@
         document.getElementById("-js--notification--backdrop").style.display= "none" 
      }
 
+     //haalt de 4 decimalen van de avg weg
      function trimDownValues(){
         temp = String(Math.round({{$avgTemp}}))
         hum = String(Math.round({{$avgHum}}))
