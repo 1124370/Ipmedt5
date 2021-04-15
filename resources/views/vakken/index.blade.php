@@ -66,7 +66,8 @@
         <!-- Section werkvak kiezen Begin -->
         <section class="u-section-dashboard">
             <h2>Aan de slag met?</h2>   
-            <form method="POST" action="/vakken">
+            <form method="POST" action="/aanhetwerk">
+                    @csrf
                     <label for="werkvak">Naam</label>
                     <select name="werkvak" id="werkvak">
                         @foreach ($vakken as $vak)
@@ -74,7 +75,7 @@
                         @endforeach
                     </select>
 
-                    <button type="submit">Create vak</button>
+                    <button type="submit">Aan de slag met dit vak</button>
             </form>
             
         </section>
