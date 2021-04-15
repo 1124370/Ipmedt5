@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 use App\Models\werk;
 use Illuminate\Http\Request;
+use DB;
 
 class aanhetwerkController extends Controller
-{
-    public function newvak(Request $request){
+{   
+    public function newvak(Request $request, \App\Models\werk $werk){
+        DB::table('tijdloopt')->truncate();
+        $werk->name = $request->input('werkvak');
+        $werk->active = true;
         
-        $werkvak = werk::all()->first();
-
-        $werkvak->name = $request->input('werkvak');
-        $werkvak->active = 1;
-        $vakken->save();
-
-        return redirect('/vakken')
+        try{
+            $werk->save();
+            return redirect('/vakken');
+        }
+        catch(Exception $e){
+            return redirect('/vakken');
+        }
     }
+    
 }

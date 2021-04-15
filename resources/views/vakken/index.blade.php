@@ -1,20 +1,24 @@
 @extends('default')
 @section('css')
+<link rel="stylesheet" href="/css/decibel.css">
 <link rel="stylesheet" href="css/vakkan.css">
+
+
 @endsection
 @section('js')
 <script src="js/reload-time.js"> </script>
+
 @endsection
 @section('content')
     <main>
         <section class="heading">
             <article class="heading__article">
-                <h1 class="heading__title">Dashboard</h1>
-                <h3 class="heading__info">Het aantal decibel</h3>
+                <h1 class="heading__title">Planning</h1>
+                <h3 class="heading__info">Aan welk vak moet je nog tijd besteden?</h3>
             </article>
         </section> 
 
-        <section class="geluid">
+        <section class="decibel">
         
         <!-- Pop up vak aanmaken begin -->
         <div id="modalVak"  class="modal">
@@ -36,49 +40,57 @@
 
                 </form>
                 <div class="footer">
-                    <button onclick="toggleModal()">Close</button>
+                    <button class="u-margin" onclick="toggleModal()">Close</button>
                 </div>
             </div>
         </div>
          <!-- Pop up vak aanmaken Eind -->
 
         <!-- Section huidige statatieken Begin -->
-        <section class="vooruitgang-dashboard u-section-dashboard u-float-left">
-            <h2>Vooruitgang van statatieken</h2>
+        <section class="charts">
+            <article class="charts__article">
+                <h2 class="charts__title">Vooruitgang van statatieken</h2>
+                <ul>
+                    @foreach ($vakken as $vak)
+                        <li class="u-list-style-none">
+                            <h3 class="charts__standard">{{ $vak->naam }} {{ $vak->id }}</h3>
+                            <div class="vak__progressbar">
+                                <div class="vak__progressbar_fill" id="procent{{ $vak->naam }}" style="height:36px;">
+                                </div><span id='procent'></span>
+                            </div>
+                            <h4 class="charts__standard">Aan {{ $vak->naam }} heb je al {{ $vak->gewerktetijd }} minuten gewerkt nog <span id="benodigdetijd{{ $vak->naam }}"></span> minuten te gaan! </h4>
+                            <script>
+                                let gewerkt{{ $vak->naam }} = {{ $vak->gewerktetijd }};
+                                let benodig{{ $vak->naam }} = {{ $vak->benodigetijd }};
+                                document.getElementById("benodigdetijd{{ $vak->naam }}").innerHTML = benodig{{ $vak->naam }} - gewerkt{{ $vak->naam }};
+                                let proce{{ $vak->naam }} = gewerkt{{ $vak->naam }} / benodig{{ $vak->naam }} *100;
+                                document.getElementById("procent{{ $vak->naam }}").style.width= proce{{ $vak->naam }} +'%';
+                            </script>
+                            
+                        </li>
+                        <br>
+                    @endforeach
+                </ul>
+                <button class="u-margin" onclick="toggleModal()">Nieuw vak aanmaken</button> 
+                <button class="u-margin u-float-right" onclick="refresh()">Refresh</button><br><br><br>
+
             
-                
-            <ul>
-                @foreach ($vakken as $vak)
-                    <li class="u-list-style-none">
-                        {{ $vak->naam }} {{ $vak->id }}
+            </article>
+            <article class="charts__article">
+                <h2 class="charts__title">Aan de slag met?</h2>   
+                <form method="POST" action="/aanhetwerk">
+                        @csrf
+                        <label for="werkvak"><h3 class="charts__title">Ik ga aan de slag met het onderstaande vak:</h3></label>
+                        <select class="charts__selects u-margin"name="werkvak" id="werkvak">
+                            @foreach ($vakken as $vak)
+                                <option value="{{ $vak->naam }}">{{ $vak->naam }}</option>
+                            @endforeach
+                        </select>
 
-                    </li>
-                    <div class="vak__progressbar">
-                        <div class="vak__progressbar_fill" width="%" style="height:24px;width:{{ $vak->gewerktetijd }}%;">
-                            {{ $vak->gewerktetijd }}%</div>
-                    </div><br>
-                @endforeach
-            </ul>
-            <button onclick="toggleModal()">Maak een nieuw vak aan</button>
+                        <button class="u-margin" type="submit">Aan de slag met dit vak</button>
+                </form>
+            </article>
         </section>
-        <!-- Section huidige statatieken Eind -->
-
-        <!-- Section werkvak kiezen Begin -->
-        <section class="u-section-dashboard">
-            <h2>Aan de slag met?</h2>   
-            <form method="POST" action="/vakken">
-                    <label for="werkvak">Naam</label>
-                    <select name="werkvak" id="werkvak">
-                        @foreach ($vakken as $vak)
-                            <option value="{{ $vak->naam }}">{{ $vak->naam }}</option>
-                        @endforeach
-                    </select>
-
-                    <button type="submit">Create vak</button>
-            </form>
-            
-        </section>
-
     </main>
     
 @endsection

@@ -1,8 +1,7 @@
 // let loaction = 'http://localhost:8000/vakken';
 function refresh() {    
-    setTimeout(function () {
-        location.reload()
-    }, 2000);
+        location.reload();
+    
 }
 
 function createproduct() {

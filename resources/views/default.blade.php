@@ -20,7 +20,7 @@
                 <li class="header__item"><a href="/decibel">Decibel</a></li>
                 <li class="header__item"><a href="/templucht">Templucht</a></li>
                 <li class="header__item"><a href="/telefoon">Telefoon</a></li>
-                <li class="header__item"><a href="/vakken">Vakken</a></li>
+                <li class="header__item"><a href="/vakken">Planning</a></li>
                 <li class="header__item"><a href="/screenDistance">Afstand</a></li>
             </ul>
         </nav>
