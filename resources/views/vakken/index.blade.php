@@ -35,10 +35,10 @@
                     </div>
 
                     <button class="u-margin" type="submit">Create vak</button>
-                    <button class="modal__btn u-margin" id="btn2">Annuleren</button>
+                    
 
                 </form>
-                
+                <button class="modal__btn u-margin" id="btn2">Annuleren</button>
                 <figure class="modal__figure">
                     <img src="images/decibel.svg" alt="decibel bird tips">
                 </figure>
@@ -61,7 +61,7 @@
          <!-- Pop up vak aanmaken Eind -->
 
         <!-- Section huidige statatieken Begin -->
-        <section class="charts">
+        <section class="charts chart-u-grid">
             <article class="charts__article">
                 <h2 class="charts__title">Vooruitgang van statatieken</h2>
                 <ul>

@@ -124,6 +124,9 @@ button:hover {
     color: var(--text-white);
 }
 
+.chart-u-grid {
+    grid-template-columns: 1fr;
+}
 .charts__article {
     height: 100%;
     
@@ -140,6 +143,7 @@ button:hover {
         width: calc(100% - 4rem);
     
 }
+
 .model__input {
     font-size: 1.6rem;
     width: 50%;
@@ -181,13 +185,10 @@ button:hover {
         margin-left: 50%;
         width: 100vw;
     }
+    .chart-u-grid {
+        grid-template-columns: 1fr 1fr;
+    }
     
-    @supports not (display: grid) {
-
-    }
-    @supports (display: grid) {
-
-    }
 
     @media only screen and (min-width: 64rem) {
         .u-width {
@@ -204,37 +205,6 @@ button:hover {
         .heading--height {
             height: 23rem;
         }
-
-    @supports (display: grid) {
-        .u-grid-5 {
-            width: 100%;
-            display: grid;
-            gap: 3rem;
-            grid-template-columns: repeat(5,minmax(0,1fr));
-        }
-        .reviews__list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0 3rem;
-            max-width: 100rem;
-            margin: 0 auto;
-        }
-        .product__list {
-            display: grid;
-            grid-template-columns: repeat(4,minmax(0,1fr));
-            gap: 2rem;
-        }
-    }
-    @supports not (display: grid) {
-        .u-grid-5 {
-            display: inline-block;
-        }
-        .category__item{
-            display: inline-block;
-            width: 20%;
-            margin-right: 2rem;
-        }
-    }
 }
 
 /*utility classes */
