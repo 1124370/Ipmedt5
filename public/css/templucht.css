@@ -71,6 +71,8 @@ h4{
     top: 0;
     left: 0;
     z-index: 1;
+    background-color: black;
+    opacity: 70%;
 }
 
 .templucht__notification{
