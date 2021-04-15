@@ -4,6 +4,7 @@ from datetime import datetime
 
 gekeurde_tijden = [10, 20, 30, 40, 50]
 gekeurde_uur = "00"
+gestuurd = False
 
 
 
@@ -17,13 +18,15 @@ mydb = mysql.connector.connect(
 
 
 def sendToDb(data):
+    global gestuurd
     data = data.split(" ")
+    print("temperature: " + data[0] + " humidity: " + data[1])
     now = datetime.now()
     dt_string = now.strftime("%Y/%m/%d %H:%M")
     now_check = now.strftime("%M")
     now_check = int(now_check)
     now_checkUur = str(now_check) + "0"
-    print(dt_string)
+    print("date/time" + dt_string)
     mycursor = mydb.cursor()
 
     insert_data = (
@@ -33,12 +36,19 @@ def sendToDb(data):
     values = (data[0], data[1], dt_string)
     temphum = (data[0], data[1])
 
+    print("already send to DB: " + str(gestuurd))
     for x in gekeurde_tijden:
         if x == now_check or gekeurde_uur == now_checkUur:
-            mycursor.execute("DELETE FROM templucht LIMIT 1;")
-            mycursor.execute(insert_data, values)
-            mydb.commit()
-            print("Succesfull!")
+            if gestuurd == False:
+                mycursor.execute("DELETE FROM templucht LIMIT 1;")
+                mycursor.execute(insert_data, values)
+                mydb.commit()
+                print("Succesfully send to DB!")
+                gestuurd = True
+                break
+        elif gestuurd == True:
+            gestuurd = False
+            
 
     
 

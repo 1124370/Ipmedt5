@@ -1,3 +1,4 @@
+
 /* -------------------------------------------------------------------------------------- */
 /* Modal */
 .main__modal {
@@ -11,6 +12,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  font-size: 110%;
 }
 
 .modal__content {
@@ -19,10 +21,14 @@
   width: 100%;
   margin: 0 auto;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .modal__titel{
-  font-size: 250%;
+  font-size: 600% !important;
   text-align: center;
   margin-top: 4rem;
   color: white;
@@ -32,7 +38,7 @@
   color: white;
   width: 100%;
   margin: 1rem;
-  font-size: 120%;
+  font-size: 170% !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +50,7 @@
   margin-left: 2rem;
   margin-right: 2rem;
   text-align: center;
+  font-size: 115% !important;
 }
 
 .modal__inputContainer{
@@ -76,43 +83,10 @@
 
 .modal__button{
   font-size:180%;
-  padding: 1rem 4rem;
-  margin-bottom: 4rem;
-  border: none;
-  background-color: #1E6F5C;
-  color: white;
-  text-decoration: none;
-}
-
-.modal__button:hover{
-  cursor:pointer;
-  background-color: #34bf9e;
-}
-
-@media(min-width: 50rem){
-  .modal__titel{
-    font-size: 300%;
-  }
-  .modal__tekstContainer{
-    font-size: 150%;
-  }
-  .modal__button{
-    font-size: 200%;
-  }
-}
-
+} 
 
 /* --------------------------------------------------- */
 /* homepagina */
-/* .main--telefoon{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items:center;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    flex-direction: column;
-} */
 
 .main__titleWrapper{
     width: 100%;
@@ -133,50 +107,40 @@
 
 .main__cardWrapper{
   background-color: black;
+  max-width: 120rem;
+  height: 100%;
+  border-radius: 3rem;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0,1fr));
+  row-gap: 2rem;
+  column-gap: 2rem;
+  padding: 2rem;
+}
+
+.main__card{
   width: 100%;
   height: 100%;
-  border-top-left-radius: 5rem;
-  border-top-right-radius: 5rem;
+  background-color: #0E0E0E;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-}
-
-.main__card{
-  width: 85%;
-  height: 65rem;
-  background-color: #0E0E0E; /*Moet veranderd worden naar #0E0E0E */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  box-sizing: border-box;
   flex-direction: column;
   padding: 2rem;
-  margin-top: 8rem;
-  margin-bottom: 4rem;
-  border-radius:2.5rem;
+  margin: auto;
+  border-radius:3rem;
 }
 
 .main__button{
-  font-size:130%;
+  font-size:180%;
   padding: 1rem 4rem;
-  margin-bottom: 4rem;
-  border: none;
-  background-color: #7F22EA;
-  color: white;
-  text-decoration: none;
 }
 
-.main__button:hover{
-  cursor:pointer;
-  background-color: #ac70f1;
-}
 
 .main__tijd{
-  font-size: 300%;
-  margin: 1rem auto 2rem auto;
+  font-size: 400% !important;
+  margin: 1.5rem auto 2rem auto;
   display: none;
 }
 
@@ -186,16 +150,19 @@
 
 .main__tekst{
   width: 100%;
-  font-size: 200%;
+  font-size: 300% !important;
   text-align: center;
+}
+
+.main__tekst--status{
+  margin-top: 1rem;
 }
 
 .main__ondertekst{
   text-align: center;
   margin-top:2rem;
-  font-size:110%;
+  font-size:160% !important;
 }
-
 
 .main__tekst--aanwezig{
   text-transform: uppercase;
@@ -227,7 +194,7 @@
   box-shadow: -6px 6px 0 rgba(165, 62, 51, 0.3);
   text-decoration: none;
   border-radius: 4rem;
-  font-size: 150%;
+  font-size: 180%;
   margin-top: 4rem;
 }
 
@@ -292,58 +259,59 @@ a:active.main__button--noodgeval:after {
 }
 
 @media(min-width: 37.5rem){
-  .main__card{
-    width: 65%;
-  }  
+  .main__cardWrapper{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  } 
+  .main__modal{
+    font-size: 140%;
+  }
 }
 
 @media(min-width: 50rem){
-  .main__title{
-    font-size: 280%;
-  }
-  .main__card{
-    height: 65rem;
-  }
   .main__tekst{
-    font-size: 250%;
+    font-size: 350% !important;
   } 
   .main__tijd{
-    font-size:350%;
+    font-size:450% !important;
   } 
   .main__button{
-    font-size: 150%;
+    font-size: 180% !important;
   }
 }
 
 @media(min-width: 62.5rem){
-  .main__card{
-    width: 50%;
-    height: 75rem;
-  }  
   .main__tekst{
-    font-size: 300%;
+    font-size: 400%;
   } 
   .main__tijd{
-    font-size:400%;
+    font-size:500%;
   } 
   .main__button{
-    font-size: 180%;
+    font-size: 200%;
   }
   .main__ondertekst{
     font-size:130%;
   }
 }
 
-
 /* ------------------------------------------------------------------------------- */
 /* noodgeval pagina */
+.main__cardWrapper--stop{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box; 
+  padding: 2rem;
+}
+
 .main__card--stop{
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   height: auto;
-  margin-bottom: 8rem;
+  font-size: 140%;
 }
 
 .main__tekst--stop{
@@ -362,7 +330,6 @@ a:active.main__button--noodgeval:after {
 
 .main__button--terug{
   margin-bottom: 1rem;
-
 }
 
 .main__a{
@@ -370,9 +337,10 @@ a:active.main__button--noodgeval:after {
   margin-bottom: 3rem;
 }
 
-.main__button--terug:hover{
-  cursor:pointer;
-  background-color: #ac70f1;
+
+
+@media(min-width:62.5rem){
+  .main__card--stop{
+    font-size: 160%;;
+  }
 }
-
-
