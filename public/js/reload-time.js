@@ -1,23 +1,27 @@
 // let loaction = 'http://localhost:8000/vakken';
-function refresh() {    
-        location.reload();
+window.onload = function () {
+  const modal = document.getElementById("myModal");
+  const popup = document.getElementById("popup");
+  const refres = document.getElementById("refresh");
+  
+
+refres.onclick = function() {
+    location.reload();
+}
+ 
+popup.onclick = function() { 
     
+    modal.style.display = "flex";
 }
 
-function createproduct() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-  }
+btn2.onclick = function() {
+  modal.style.display = "none";
+}
 
-
-  function gotowork() {
-    var popup = document.getElementById("gawerken");
-    popup.classList.toggle("show");
-  }
- 
-  function toggleModal() { 
-    var popup = document.getElementById("modalVak"); 
-    popup.classList.toggle("show"); 
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}}
 }
 // refresh()
 

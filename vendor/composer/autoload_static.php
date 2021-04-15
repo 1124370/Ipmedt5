@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37
+class ComposerStaticInitb6b13fca18cd081709a81068d70ab5db
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -2873,20 +2873,10 @@ class ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
         'League\\MimeTypeDetection\\EmptyExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/EmptyExtensionToMimeTypeMap.php',
-        'League\\MimeTypeDetection\\EmptyExtensionToMimeTypeMapTest' => __DIR__ . '/..' . '/league/mime-type-detection/src/EmptyExtensionToMimeTypeMapTest.php',
         'League\\MimeTypeDetection\\ExtensionMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionMimeTypeDetector.php',
-        'League\\MimeTypeDetection\\ExtensionMimeTypeDetectorTest' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionMimeTypeDetectorTest.php',
         'League\\MimeTypeDetection\\ExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\FinfoMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/FinfoMimeTypeDetector.php',
-        'League\\MimeTypeDetection\\FinfoMimeTypeDetectorTest' => __DIR__ . '/..' . '/league/mime-type-detection/src/FinfoMimeTypeDetectorTest.php',
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
-        'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMapTest' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMapTest.php',
-        'League\\MimeTypeDetection\\Generation\\CombinedMimeTypeProvider' => __DIR__ . '/..' . '/league/mime-type-detection/src/Generation/CombinedMimeTypeProvider.php',
-        'League\\MimeTypeDetection\\Generation\\ExtensionToMimeTypeMapGenerator' => __DIR__ . '/..' . '/league/mime-type-detection/src/Generation/ExtensionToMimeTypeMapGenerator.php',
-        'League\\MimeTypeDetection\\Generation\\FlysystemProvidedMimeTypeProvider' => __DIR__ . '/..' . '/league/mime-type-detection/src/Generation/FlysystemProvidedMimeTypeProvider.php',
-        'League\\MimeTypeDetection\\Generation\\JsHttpMimeDBMimeTypeProvider' => __DIR__ . '/..' . '/league/mime-type-detection/src/Generation/JsHttpMimeDBMimeTypeProvider.php',
-        'League\\MimeTypeDetection\\Generation\\MimeTypeForExtension' => __DIR__ . '/..' . '/league/mime-type-detection/src/Generation/MimeTypeForExtension.php',
-        'League\\MimeTypeDetection\\Generation\\MimeTypeProvider' => __DIR__ . '/..' . '/league/mime-type-detection/src/Generation/MimeTypeProvider.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
@@ -4953,7 +4943,6 @@ class ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37
         'Symfony\\Component\\String\\Inflector\\FrenchInflector' => __DIR__ . '/..' . '/symfony/string/Inflector/FrenchInflector.php',
         'Symfony\\Component\\String\\Inflector\\InflectorInterface' => __DIR__ . '/..' . '/symfony/string/Inflector/InflectorInterface.php',
         'Symfony\\Component\\String\\LazyString' => __DIR__ . '/..' . '/symfony/string/LazyString.php',
-        'Symfony\\Component\\String\\Resources\\WcswidthDataGenerator' => __DIR__ . '/..' . '/symfony/string/Resources/WcswidthDataGenerator.php',
         'Symfony\\Component\\String\\Slugger\\AsciiSlugger' => __DIR__ . '/..' . '/symfony/string/Slugger/AsciiSlugger.php',
         'Symfony\\Component\\String\\Slugger\\SluggerInterface' => __DIR__ . '/..' . '/symfony/string/Slugger/SluggerInterface.php',
         'Symfony\\Component\\String\\UnicodeString' => __DIR__ . '/..' . '/symfony/string/UnicodeString.php',
@@ -5254,10 +5243,10 @@ class ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitdf3bcf7313556f51573c9cfba0613e37::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb6b13fca18cd081709a81068d70ab5db::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb6b13fca18cd081709a81068d70ab5db::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitb6b13fca18cd081709a81068d70ab5db::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitb6b13fca18cd081709a81068d70ab5db::$classMap;
 
         }, null, ClassLoader::class);
     }

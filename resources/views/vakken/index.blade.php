@@ -17,33 +17,47 @@
                 <h3 class="heading__info">Aan welk vak moet je nog tijd besteden?</h3>
             </article>
         </section> 
+        <!-- pop up -->
+        <section id="myModal" class="modal" tabindex="-1">
+            <div class="modal-content" aria-labelledby="myModal">
+                <h2 class="modal__title modal__title--color-red u-margin" tabindex="0">Vak toevoegen aan je lijst</h2>
+                <h3 class="modal__h3 u-margin"> Vul de gegevens in van het vak dat je wil aanmaken</h3>
+                <form class="body d-flex flex-column" method="POST" action="/vakken">
+                    @csrf
+                    <div>
+                        <label  for="naam"><h3 class="modal__standard">Naam</h3></label>
+                        <input class="model__input u-margin" name="naam" id="naam" type="text">
+                    </div>
+
+                    <div>
+                        <label for="benodigetijd"><h3 class="modal__standard">benodigetijd</h3></label>
+                        <input class="model__input u-margin" name="benodigetijd" id="benodigetijd" type="number">
+                    </div>
+
+                    <button class="u-margin" type="submit">Create vak</button>
+                    <button class="modal__btn u-margin" id="btn2">Annuleren</button>
+
+                </form>
+                
+                <figure class="modal__figure">
+                    <img src="images/decibel.svg" alt="decibel bird tips">
+                </figure>
+            </div>
+        </section>
 
         <section class="decibel">
         
         <!-- Pop up vak aanmaken begin -->
-        <div id="modalVak"  class="modal">
+        
+        <!-- <div id="modalVak"  class="modal">
             <div class="wrapper popup">
                 <div class="header">Header here</div>
-                <form class="body d-flex flex-column" method="POST" action="/vakken">
-                    @csrf
-                    <div>
-                        <label for="naam">Naam</label>
-                        <input name="naam" id="naam" type="text">
-                    </div>
-
-                    <div>
-                        <label for="benodigetijd">benodigetijd</label>
-                        <input name="benodigetijd" id="benodigetijd" type="number">
-                    </div>
-
-                    <button type="submit">Create vak</button>
-
-                </form>
+                
                 <div class="footer">
                     <button class="u-margin" onclick="toggleModal()">Close</button>
                 </div>
             </div>
-        </div>
+        </div> -->
          <!-- Pop up vak aanmaken Eind -->
 
         <!-- Section huidige statatieken Begin -->
@@ -53,7 +67,7 @@
                 <ul>
                     @foreach ($vakken as $vak)
                         <li class="u-list-style-none">
-                            <h3 class="charts__standard">{{ $vak->naam }} {{ $vak->id }}</h3>
+                            <h3 class="charts__standard">{{ $vak->naam }}</h3>
                             <div class="vak__progressbar">
                                 <div class="vak__progressbar_fill" id="procent{{ $vak->naam }}" style="height:36px;">
                                 </div><span id='procent'></span>
@@ -71,8 +85,8 @@
                         <br>
                     @endforeach
                 </ul>
-                <button class="u-margin" onclick="toggleModal()">Nieuw vak aanmaken</button> 
-                <button class="u-margin u-float-right" onclick="refresh()">Refresh</button><br><br><br>
+                <button class="u-margin" id="popup">Nieuw vak aanmaken</button> 
+                <button class="u-margin u-float-right" id="refresh">Refresh</button><br><br><br>
 
             
             </article>
