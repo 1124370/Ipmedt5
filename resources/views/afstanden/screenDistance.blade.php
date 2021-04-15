@@ -18,7 +18,6 @@
         const span = document.getElementsByClassName("close")[0];
         let app = @json($afstanden);
         let gemiddelde = @json($gemiddelde);
-        let gemiddelde = 50;
         console.log(gemiddelde);
         if (gemiddelde < 40) {
             modal.style.display = "flex";
