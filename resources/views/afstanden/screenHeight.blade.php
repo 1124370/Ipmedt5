@@ -142,7 +142,7 @@ window.onclick = function(event) {
 
             <canvas id="screenHeight"></canvas>
          </section>
-         <section class="containerTable">
+         <section class="containerGraph">
             <h1 class="container__title">Afstanden tot scherm tabel</h1>
             <table class="table__afstanden" border="1">
                <tr>

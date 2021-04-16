@@ -16,7 +16,7 @@ class CreateDeskDistanceTable extends Migration
         Schema::create('desk_distance', function (Blueprint $table) {
             $table->timestamp('created_at', $precision = 6)->useCurrent();
             $table->integer('Afstand');
-            $table->String('Ideale_afstand')->default("Tussen de 40 en 60");
+            $table->String('Ideale_afstand')->default("Tussen de 60 en 80 centimeter");
         });
     }
 
