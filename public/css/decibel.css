@@ -297,7 +297,7 @@ button:hover {
     .header {
         width: 95%;
         margin: 4rem auto;
-    };
+    }
     .heading {
         height: 20rem;
     }
@@ -309,7 +309,7 @@ button:hover {
         margin-left: 50%;
         width: 100%;
     }
-    
+}  
 /*desktopView*/
     @media only screen and (min-width: 64rem) {
         .heading {
@@ -328,4 +328,3 @@ button:hover {
         }
 
     }
-}
