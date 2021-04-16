@@ -61,34 +61,33 @@
 @endsection
 
 @section('content')
-    <main class="main main--telefoon" >
+    <main class="main--telefoon">
         <section class="heading">
             <article class="heading__article">
                 <h1 class="heading__title">Dashboard</h1>
-                <h3 class="heading__info">Decibel</h3>
+                <h3 class="heading__info">Telefoonhouder</h3>
             </article>
         </section> 
 
-        <section class="main__titleWrapper">
-            <h1 class="main__title">Telefoonhouder</h1>
-        </section>
-
-        <section class="main__cardWrapper">
-            <article class="main__card"> 
+        <article class="main__cardWrapper">
+            <section class="main__card"> 
                 <h3 class="main__tekst">Minuten:</h3>               
                 <h2 class="main__tijd" id="js--aftellen">00:00:00</h2>
-                <button class="main__button" id="js--startButton" onclick="startTijd();" type="button">Start tijd</button>    
+                <button class="main__button" id="js--startButton" onclick="startTijd();" type="button">Start tijd</button>  
+            </section>  
 
-                <h3 class="main__tekst">Telefoon is</h3>
-                <h3 class="main__tekst main__tekst--aanwezig" id="js--aanwezig">.</h3>
-                <h3 class="main__tekst">aanwezig</h3>                
-
+            <section class="main__card">
+                <h3 class="main__tekst main__tekst--status">Telefoon is</h3>
+                <h3 class="main__tekst main__tekst--aanwezig main__tekst--status" id="js--aanwezig">.</h3>
+                <h3 class="main__tekst main__tekst--status">aanwezig</h3>  
                 <section class="main__buttonContainer">
                     <a href="/stop" class="main__button--noodgeval">Noodgeval</a>
                 </section>      
-            </article> 
+            </section>         
+        </article> 
 
-            <modal id="js--modal" class="main__modal">
+    </main>   
+    <modal id="js--modal" class="modal">
                 <section class="modal__content">
                     <h3 class="modal__titel">Stel tijd in</h3>
                     <section class="modal__tekstContainer">
@@ -106,11 +105,7 @@
                     </section>
                 </section>
                 
-    	    </modal>
-
-
-        </section> 
-</main>    
+    	    </modal> 
 @endsection
 
 

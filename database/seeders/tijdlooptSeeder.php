@@ -15,7 +15,7 @@ class tijdlooptSeeder extends Seeder
     {
         DB::table('tijdloopt')->insert([
             'name' => 'Tijdhardware',
-            'active' => 1 ,
+            'active' => 0 ,
         ]);
     }
 }

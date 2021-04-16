@@ -16,7 +16,7 @@ class CreateScreenHeightDistanceTable extends Migration
         Schema::create('screen_height_distance', function (Blueprint $table) {
             $table->timestamp('created_at', $precision = 6)->useCurrent();
             $table->integer('Afstand');
-            $table->String('Ideale_afstand')->default("Tussen de 40 en 60");
+            $table->String('Ideale_afstand')->default("Tussen de 10 en 20 centimeter");
         });
     }
 

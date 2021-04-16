@@ -16,8 +16,8 @@ class TempluchtTableSeeder extends Seeder
     {
         for($x = 0; $x < 12; $x++) {
             DB::table('templucht')->insert([
-                'temperature' => 20,
-                'humidity' => 50
+                'temperature' => rand(19,21),
+                'humidity' => rand(49,52)
             ]);
             
         }
