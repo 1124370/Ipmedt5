@@ -86,7 +86,8 @@
             </section>         
         </article> 
 
-            <modal id="js--modal" class="main__modal">
+    </main>   
+    <modal id="js--modal" class="modal">
                 <section class="modal__content">
                     <h3 class="modal__titel">Stel tijd in</h3>
                     <section class="modal__tekstContainer">
@@ -104,9 +105,7 @@
                     </section>
                 </section>
                 
-    	    </modal>
-
-</main>    
+    	    </modal> 
 @endsection
 
 
